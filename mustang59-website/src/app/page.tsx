@@ -22,7 +22,7 @@ export default function HomePage() {
       <section className="tech-section">
         <div className="container">
           <h2 className="section-title">Наша техника</h2>
-          <div className="tech-cards-grid"> {/* Заменили tech-grid-main на tech-cards-grid */}
+          <div className="tech-cards-grid">
             {featuredTech.map((item) => (
               <Link key={item.id} href={`/catalog/${item.slug}`} className="tech-card tech-card-image-type">
                 <img 
