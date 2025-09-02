@@ -13,7 +13,7 @@ export default function Header() {
       <div className="header-container container">
         <Link href="/" className="logo-link">
           <Image 
-            src="/images/logo.jpg" 
+            src="/images/logotip.png" 
             alt="Мустанг59" 
             width={160} 
             height={48} 
