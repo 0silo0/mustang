@@ -670,8 +670,12 @@ a {
 }
 
 .logo-image {
-  height: 3rem;
-  width: auto;
+  object-fit: contain;
+  width: 100%;
+  height: auto;
+  /* Отключаем возможные анимации */
+  animation: none !important;
+  transition: none !important;
 }
 
 .desktop-nav {

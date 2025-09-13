@@ -15,12 +15,13 @@ export default function Header() {
           <Image 
             src="/images/logotip.png" 
             alt="Мустанг59" 
-            width={160} 
-            height={48} 
+            width={50} 
+            height={50} 
             className="logo-image"
             priority
           />
         </Link>
+
 
         <nav className="desktop-nav">
           <Link href="/" className="nav-link">Главная</Link>
