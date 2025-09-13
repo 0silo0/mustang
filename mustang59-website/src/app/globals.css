@@ -92,8 +92,20 @@ a {
 .tech-cards-grid {
   display: grid;
   gap: 1.5rem;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   margin: 2rem 0;
+}
+
+@media (max-width: 1024px) {
+  .tech-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .tech-cards-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 .tech-card {
@@ -104,6 +116,9 @@ a {
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   position: relative;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .tech-card::before {
@@ -126,10 +141,15 @@ a {
 .tech-card-image-type {
   padding: 0;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
 .tech-card-image-type .tech-card-content {
   padding: 1.5rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .tech-card-image-type .tech-card-image {
@@ -159,7 +179,7 @@ a {
 @keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(40px);
   }
   to {
     opacity: 1;
@@ -168,7 +188,33 @@ a {
 }
 
 .tech-card {
-  animation: fadeInUp 0.6s ease-out;
+  animation: fadeInUp 0.4s ease-out;
+}
+
+/* Стили только для страницы каталога */
+.catalog-page .tech-cards-grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(3, 1fr);
+  margin: 2rem 0;
+}
+
+.catalog-page .tech-card {
+  max-width: 100%;
+  margin: 0;
+}
+
+/* Адаптивные стили для страницы каталога */
+@media (max-width: 1024px) {
+  .catalog-page .tech-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .catalog-page .tech-cards-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* Добавьте эти стили в ваш globals.css */
@@ -226,13 +272,6 @@ a {
   border-top: 1px solid #333;
   justify-content: center;
 }
-
-.tech-card:nth-child(1) { animation-delay: 0.1s; }
-.tech-card:nth-child(2) { animation-delay: 0.2s; }
-.tech-card:nth-child(3) { animation-delay: 0.3s; }
-.tech-card:nth-child(4) { animation-delay: 0.4s; }
-.tech-card:nth-child(5) { animation-delay: 0.5s; }
-.tech-card:nth-child(6) { animation-delay: 0.6s; }
 
 .tech-card:hover {
   transform: translateY(-8px) scale(1.02);
@@ -306,14 +345,14 @@ a {
   }
 }
 
-.tech-card {
-  animation: fadeIn 0.6s ease-out;
+/* .tech-card {
+  animation: fadeIn 2s ease-out;
 }
 
 .tech-card:nth-child(1) { animation-delay: 0.1s; }
 .tech-card:nth-child(2) { animation-delay: 0.2s; }
 .tech-card:nth-child(3) { animation-delay: 0.3s; }
-.tech-card:nth-child(4) { animation-delay: 0.4s; }
+.tech-card:nth-child(4) { animation-delay: 0.4s; } */
 
 /* Остальные существующие стили остаются без изменений */
 .container {
@@ -336,6 +375,81 @@ a {
   .container {
     padding-left: 2rem;
     padding-right: 2rem;
+  }
+}
+
+/* Стили для страницы отдельной техники */
+.tech-page .tech-specs-card {
+  background: linear-gradient(145deg, var(--dark-bg), var(--darker-bg));
+  border: 1px solid #333;
+  border-radius: 12px;
+  padding: 1.5rem;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  overflow: hidden;
+  margin: 2rem 0;
+  width: 90%;
+  max-width: 100%;
+}
+
+.tech-page .tech-specs-card .tech-card-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.tech-page .tech-specs-card .tech-card-icon {
+  width: 48px;
+  height: 48px;
+  background: var(--primary);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+}
+
+.tech-page .tech-specs-card .tech-card-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0;
+  color: var(--primary);
+}
+
+.tech-page .tech-specs-card .tech-card-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.tech-page .tech-specs-card .tech-card-item {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #2c2c2c;
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.tech-page .tech-specs-card .tech-card-item:last-child {
+  border-bottom: none;
+}
+
+.tech-page .tech-specs-card .tech-card-item::before {
+  content: "•";
+  color: var(--primary);
+  position: absolute;
+  left: 0;
+  font-size: 1.2rem;
+}
+
+/* Адаптивность для страницы техники */
+@media (max-width: 768px) {
+  .tech-page .tech-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .tech-page .tech-specs-card {
+    margin: 1.5rem 0;
   }
 }
 
@@ -728,7 +842,8 @@ a {
 }
 
 .footer-social {
-  display: flex;
+  display: grid;
+  width: 10%;
   gap: 1rem;
 }
 
@@ -839,4 +954,101 @@ a {
   display: flex;
   gap: 1rem;
   padding: 0.5rem 0.75rem;
+}
+
+.search-container {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+/* Стили для поля поиска */
+.search-input {
+  background-color: transparent;
+  border: 1px solid var(--gray-dark);
+  color: var(--foreground);
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  width: 97.5%;
+  transition: all 0.3s ease;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.2);
+}
+
+.search-input::placeholder {
+  color: var(--gray);
+}
+
+.search-clear-btn {
+  position: absolute;
+  right: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: var(--gray);
+  cursor: pointer;
+  padding: 0;
+  width: 1.25rem;
+  height: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.search-clear-btn:hover {
+  color: var(--primary);
+  background-color: rgba(212, 175, 55, 0.1);
+}
+
+/* Стили для кнопки прокрутки вверх */
+.scroll-top-btn {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  width: 3rem;
+  height: 3rem;
+  background-color: var(--primary);
+  color: #000;
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+.scroll-top-btn:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+}
+
+/* Адаптивные стили */
+@media (max-width: 768px) {
+  .search-input {
+    padding: 0.625rem 0.875rem;
+    font-size: 0.875rem;
+  }
+  
+  .scroll-top-btn {
+    bottom: 1rem;
+    right: 1rem;
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+  
+  .scroll-top-btn svg {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
 }

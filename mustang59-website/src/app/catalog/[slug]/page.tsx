@@ -48,18 +48,17 @@ export default async function TechItemPage({ params }: { params: Promise<{ slug:
           <p className="tech-category">Категория: {techItem.category}</p>
           <p className="tech-description">{techItem.description}</p>
           
-          <div className="tech-cards-grid">
-            <div className="tech-card">
-              <div className="tech-card-header">
-                <div className="tech-card-icon">⚙️</div>
-                <h3 className="tech-card-title">Характеристики</h3>
-              </div>
-              <ul className="tech-card-list">
-                {techItem.characteristics.map((char, index) => (
-                  <li key={index} className="tech-card-item">{char}</li>
-                ))}
-              </ul>
+          {/* Убрали tech-cards-grid и добавили класс для характеристик */}
+          <div className="tech-specs-card">
+            <div className="tech-card-header">
+              <div className="tech-card-icon">⚙️</div>
+              <h3 className="tech-card-title">Характеристики</h3>
             </div>
+            <ul className="tech-card-list">
+              {techItem.characteristics.map((char, index) => (
+                <li key={index} className="tech-card-item">{char}</li>
+              ))}
+            </ul>
           </div>
           
           <div className="contact-buttons">
@@ -72,7 +71,7 @@ export default async function TechItemPage({ params }: { params: Promise<{ slug:
               Написать в WhatsApp
             </a>
             <a 
-              href={`https://t.me/79048474909`} 
+              href={`tg://resolve?phone=79048474909`} 
               target="_blank" 
               rel="noopener noreferrer" 
               className="telegram-btn"

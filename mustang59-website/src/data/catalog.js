@@ -74,8 +74,8 @@ export const techData = [
   {
     id: 9,
     slug: 'cropped-soprovozhdenie-gruzoperevozok',
-    title: "Сопровождение грузов",
-    category: "Сопровождение",
+    title: "Сопровождение",
+    category: "Сопровождение грузов",
     image: "/images/tech/cropped-soprovozhdenie-gruzoperevozok.jpg",
     description: "Краткое описание сопровождающей машины...",
     characteristics: [],
