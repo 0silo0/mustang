@@ -15,8 +15,8 @@ export default function Header() {
           <Image 
             src="/images/logotip.png" 
             alt="Мустанг59" 
-            width={50} 
-            height={50} 
+            width={48} 
+            height={48} 
             className="logo-image"
             priority
           />
