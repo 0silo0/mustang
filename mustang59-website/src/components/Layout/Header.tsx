@@ -18,6 +18,7 @@ export default function Header() {
             width={160} 
             height={48} 
             className="logo-image"
+            priority
           />
         </Link>
 
