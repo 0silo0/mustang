@@ -12,17 +12,6 @@
       "dest": "/$1"
     }
   ],
-  "headers": [
-    {
-      "source": "/yandex_961a99a5f045287f.html",
-      "headers": [
-        {
-          "key": "Content-Type",
-          "value": "text/html; charset=utf-8"
-        }
-      ]
-    }
-  ],
   "redirects": [
     {
       "source": "/yandex_961a99a5f045287f.html",
