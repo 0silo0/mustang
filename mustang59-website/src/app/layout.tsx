@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   title: 'Мустанг59 - Аренда спецтехники',
   description: 'ООО «ТК Мустанг59» - аренда спецтехники в Перми и Пермском крае',
   other: {
-    'yandex-verification': '961a99a5f045287f',
+    'yandex-verification': '3bf313c78f4c0767',
   },
 };
 
