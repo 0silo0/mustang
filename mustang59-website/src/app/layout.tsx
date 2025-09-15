@@ -10,6 +10,9 @@ const montserrat = Montserrat({ subsets: ['latin'] });
 export const metadata: Metadata = {
   title: 'Мустанг59 - Аренда спецтехники',
   description: 'ООО «ТК Мустанг59» - аренда спецтехники в Перми и Пермском крае',
+  other: {
+    'yandex-verification': '961a99a5f045287f',
+  },
 };
 
 export default function RootLayout({
