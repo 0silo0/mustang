@@ -23,6 +23,27 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ru" suppressHydrationWarning>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              "name": "ООО ТК Мустанг59",
+              "url": "https://mustang59.ru",
+              "logo": "https://mustang59.ru/images/logotip.png",
+              "description": "Аренда спецтехники в Перми и Пермском крае",
+              "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Пермь", 
+                "addressRegion": "Пермский край"
+              },
+              "telephone": "+7-904-847-49-09" // ЗАМЕНИТЕ НА РЕАЛЬНЫЙ ТЕЛЕФОН
+            })
+          }}
+        />
+      </head>
       <body className={inter.className}>
         <Header />
         <main>{children}</main>
