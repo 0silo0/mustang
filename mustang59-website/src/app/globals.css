@@ -25,6 +25,86 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--primary);
 }
 
+.seo-text-section {
+  padding: 4rem 0;
+  background: linear-gradient(to bottom, var(--dark-bg), var(--darker-bg));
+  border-top: 1px solid #333;
+  border-bottom: 1px solid #333;
+}
+
+.seo-content {
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.7;
+  color: var(--foreground);
+}
+
+.seo-content h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: var(--primary);
+  text-align: center;
+}
+
+.seo-content h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 2rem 0 1rem;
+  color: var(--primary);
+  border-left: 4px solid var(--primary);
+  padding-left: 1rem;
+}
+
+.seo-content p {
+  margin-bottom: 1.5rem;
+  color: var(--foreground);
+}
+
+.seo-content strong {
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.seo-content ul {
+  margin: 1rem 0;
+  padding-left: 1.5rem;
+  color: var(--foreground);
+}
+
+.seo-content li {
+  margin-bottom: 0.75rem;
+  position: relative;
+  padding-left: 0.5rem;
+}
+
+.seo-content li::before {
+  content: "•";
+  color: var(--primary);
+  font-weight: bold;
+  position: absolute;
+  left: -1rem;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .seo-text-section {
+    padding: 3rem 0;
+  }
+  
+  .seo-content h2 {
+    font-size: 1.75rem;
+  }
+  
+  .seo-content h3 {
+    font-size: 1.25rem;
+  }
+  
+  .seo-content {
+    padding: 0 1rem;
+  }
+}
+
 /* Общие стили для кнопок */
 .btn {
   display: inline-flex;
