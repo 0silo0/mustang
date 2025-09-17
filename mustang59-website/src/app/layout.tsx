@@ -23,6 +23,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ru" suppressHydrationWarning>
+      <link rel="icon" href="https://mustang59.ru/images/logotip.png" type="image/x-icon"></link>
       <head>
         <script
           type="application/ld+json"
