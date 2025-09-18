@@ -40,7 +40,7 @@ export default function RootLayout({
                 "addressLocality": "Пермь", 
                 "addressRegion": "Пермский край"
               },
-              "telephone": "+7-904-847-49-09" // ЗАМЕНИТЕ НА РЕАЛЬНЫЙ ТЕЛЕФОН
+              "telephone": "+7-904-847-49-09"
             })
           }}
         />
