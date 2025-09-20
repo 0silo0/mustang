@@ -842,6 +842,7 @@ a {
   align-items: center;
   height: 100%; /* Уменьшаем высоту хедера на мобильных */
   padding: 0 1rem;
+  max-width: 98%;
 }
 
 .logo-link {
@@ -1573,9 +1574,46 @@ a {
   animation: slideIn 0.3s ease forwards;
 }
 
+/* Стили для анимированного бургер-меню */
 .mobile-menu-toggle {
-  background: #0f0f0f;
-  border-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 44px;
+  height: 44px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  gap: 4px;
+  color: white;
+}
+
+.burger-line {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background-color: currentColor;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Анимация в крестик */
+.mobile-menu-toggle.active .burger-line:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.mobile-menu-toggle.active .burger-line:nth-child(2) {
+  opacity: 0;
+}
+
+.mobile-menu-toggle.active .burger-line:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+/* Уберите старые стили для SVG иконки */
+.mobile-menu-btn svg {
+  display: none;
 }
 
 .mobile-nav-link:nth-child(1) { animation-delay: 0.1s; }
