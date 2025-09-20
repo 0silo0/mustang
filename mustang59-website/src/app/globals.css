@@ -1229,8 +1229,10 @@ a {
 .search-container {
   position: relative;
   display: inline-block;
-  width: 100%;
+  width: 93%;
+  margin-left: 0.5rem;
 }
+
 
 /* Стили для поля поиска */
 .search-input {
