@@ -7,16 +7,33 @@ import Image from 'next/image';
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  // Блокировка скролла при открытом меню
   useEffect(() => {
     if (isMenuOpen) {
-      document.body.style.overflow = 'hidden';
+      document.body.classList.add('menu-open');
+      document.documentElement.style.overflow = 'hidden';
     } else {
-      document.body.style.overflow = 'unset';
+      document.body.classList.remove('menu-open');
+      document.documentElement.style.overflow = 'unset';
     }
 
     return () => {
-      document.body.style.overflow = 'unset';
+      document.body.classList.remove('menu-open');
+      document.documentElement.style.overflow = 'unset';
+    };
+  }, [isMenuOpen]);
+
+  // Блокировка скролла на touch устройствах
+  useEffect(() => {
+    const preventScroll = (e: TouchEvent) => {
+      if (isMenuOpen) {
+        e.preventDefault();
+      }
+    };
+
+    document.addEventListener('touchmove', preventScroll, { passive: false });
+
+    return () => {
+      document.removeEventListener('touchmove', preventScroll);
     };
   }, [isMenuOpen]);
 
