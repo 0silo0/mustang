@@ -20,7 +20,7 @@ export default function HomePage() {
   return (
     <main>
       <section className="about-section">
-        <div className="container">
+        <div className="about-container">
           <Link href="/">
             <Image 
               src="/images/logotip.png" 
@@ -39,7 +39,7 @@ export default function HomePage() {
       </section>
 
       <section className="seo-text-section">
-        <div className="container">
+        <div className="seo-text-container">
           <div className="seo-content">
             <h2>Аренда спецтехники в Перми и Пермском крае</h2>
             <p>
@@ -65,7 +65,7 @@ export default function HomePage() {
       </section>
 
       <section className="categories-section">
-        <div className="container">
+        <div className="categories-container">
           <h2 className="section-title">Категории техники</h2>
           <div className="simple-categories-list">
             {categories.map((category) => (
@@ -82,7 +82,7 @@ export default function HomePage() {
       </section>
 
       <section className="hero-section">
-        <div className="container">
+        <div className="hero-container">
           <h1 className="hero-title">Аренда спецтехники в Перми и Пермском крае | ООО ТК Мустанг59</h1>
           <p className="hero-subtitle">Надежная техника для вашего строительства</p>
           <div className="text-center">
