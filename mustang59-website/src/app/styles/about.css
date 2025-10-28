@@ -1,0 +1,251 @@
+/* Стили для страницы "О компании" */
+.about-page {
+  padding: 40px 0 80px;
+  background: var(--white);
+  min-height: calc(100vh - 200px);
+}
+
+.about-page .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Хлебные крошки */
+.breadcrumbs {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 30px;
+  font-size: 0.9rem;
+  color: var(--gray);
+}
+
+.breadcrumb-link {
+  color: var(--primary);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.breadcrumb-link:hover {
+  color: var(--primary-hover);
+  text-decoration: underline;
+}
+
+.breadcrumb-separator {
+  color: var(--gray);
+}
+
+.breadcrumb-current {
+  color: var(--black);
+  font-weight: 500;
+}
+
+/* Заголовок страницы */
+.page-title {
+  font-size: 2.5rem;
+  color: var(--black);
+  text-align: center;
+  margin-bottom: 50px;
+  font-weight: 700;
+  position: relative;
+}
+
+.page-title::after {
+  content: '';
+  position: absolute;
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: var(--primary);
+}
+
+/* Основной контент */
+.about-content {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.about-section {
+  margin-bottom: 60px;
+}
+
+.about-intro {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: var(--gray);
+  text-align: center;
+  margin-bottom: 40px;
+  font-weight: 500;
+}
+
+/* Секции */
+.section-title {
+  font-size: 2rem;
+  color: var(--black);
+  text-align: center;
+  margin-bottom: 40px;
+  font-weight: 600;
+}
+
+/* Преимущества */
+.advantages-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+.advantage-card {
+  background: var(--white);
+  padding: 40px;
+  height: 100%;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid #f0f0f0;
+}
+
+.advantage-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.advantage-icon {
+  font-size: 3rem;
+  margin-bottom: 25px; /* Увеличьте отступ снизу */
+  flex-shrink: 0;
+}
+
+.advantage-title {
+  font-size: 1.3rem;
+  color: var(--black);
+  margin-bottom: 15px;
+  font-weight: 600;
+  flex-shrink: 0;
+  margin-top: 30px;
+}
+
+.advantage-text {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--gray);
+  flex-grow: 1;
+}
+
+/* Клиенты */
+.clients-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+.client-type {
+  text-align: center;
+  padding: 25px;
+  background: var(--white);
+  border-radius: 8px;
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.08);
+}
+
+.client-icon {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+}
+
+.client-title {
+  font-size: 1.2rem;
+  color: var(--black);
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.client-text {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: var(--gray);
+}
+
+/* Призыв к сотрудничеству */
+.cooperation-cta {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-hover) 100%);
+  padding: 30px;
+  border-radius: 12px;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.cta-text {
+  font-size: 1.3rem;
+  color: var(--black);
+  font-weight: 600;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .about-page {
+    padding: 20px 0 40px;
+  }
+
+  .page-title {
+    font-size: 2rem;
+    margin-bottom: 30px;
+  }
+
+  .about-intro {
+    font-size: 1.1rem;
+    text-align: left;
+  }
+
+  .section-title {
+    font-size: 1.6rem;
+    margin-bottom: 30px;
+  }
+
+  .advantages-grid,
+  .clients-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .advantage-card {
+    padding: 20px;
+  }
+
+  .cooperation-cta {
+    padding: 20px;
+  }
+
+  .cta-text {
+    font-size: 1.1rem;
+  }
+
+  .breadcrumbs {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-page .container {
+    padding: 0 15px;
+  }
+
+  .page-title {
+    font-size: 1.8rem;
+  }
+
+  .about-intro {
+    font-size: 1rem;
+  }
+
+  .advantage-icon,
+  .client-icon {
+    font-size: 2rem;
+  }
+}

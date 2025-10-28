@@ -3,12 +3,15 @@
 import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import equipmentData from '@/data/special-equipment.json';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSticky, setIsSticky] = useState(false);
+  const [isCatalogDropdownOpen, setIsCatalogDropdownOpen] = useState(false);
   const headerRef = useRef<HTMLDivElement>(null);
   const mobileMenuRef = useRef<HTMLDivElement>(null);
+  const catalogDropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (isMenuOpen) {
@@ -78,14 +81,15 @@ export default function Header() {
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
   const closeMenu = () => setIsMenuOpen(false);
+  const toggleCatalogDropdown = () => setIsCatalogDropdownOpen(!isCatalogDropdownOpen);
 
   const menuItems = [
-    { href: "/services", label: "О компании" },
-    { href: "/catalog", label: "Каталог спецтехники" },
+    { href: "/about", label: "О компании" },
+    { href: "/catalog", label: "Каталог спецтехники", hasDropdown: true },
     { href: "/about", label: "Услуги" },
     { href: "/reviews", label: "Отзывы" },
     { href: "/contacts", label: "Контакты" },
-    { href: "/promotions", label: "Фотогалерея" }
+    { href: "/gallery", label: "Фотогалерея" }
   ];
 
   return (
@@ -115,10 +119,10 @@ export default function Header() {
               <div className="mainline-left">
                 <Link href="/" className="logo-link" onClick={closeMenu}>
                   <Image 
-                    src="/images/logotip.png" 
+                    src="/images/black-logo.png" 
                     alt="Мустанг59" 
-                    width={80} 
-                    height={80} 
+                    width={130} 
+                    height={120} 
                     className="logo-image"
                     priority
                   />
@@ -132,7 +136,7 @@ export default function Header() {
               {/* Правый блок - контакты */}
               <div className="mainline-right">
                 <div className="contact-phone">
-                  <span className="phone-number">+7 (123) 456-78-90</span>
+                  <span className="phone-number">+7 (904) 847 4909</span>
                   <span className="phone-label">Бесплатная консультация</span>
                 </div>
                 <div className="contact-form">
@@ -154,9 +158,43 @@ export default function Header() {
             {/* Десктопное меню - скрывается на мобилках */}
             <div className="menu-content">
               {menuItems.map((item) => (
-                <Link key={item.href} href={item.href} className="menu-link">
-                  {item.label}
-                </Link>
+                item.hasDropdown ? (
+                  <div 
+                    key={item.href}
+                    ref={catalogDropdownRef}
+                    className="menu-item-with-dropdown"
+                    onMouseEnter={() => setIsCatalogDropdownOpen(true)}
+                    onMouseLeave={() => setIsCatalogDropdownOpen(false)}
+                  >
+                    <Link href={item.href} className="menu-link dropdown-trigger">
+                      {item.label}
+                      <span className="dropdown-arrow">▼</span>
+                    </Link>
+                    {isCatalogDropdownOpen && (
+                      <div className="dropdown-menu">
+                        <div className="dropdown-content">
+                          {equipmentData.equipment.map((equip) => (
+                            <Link
+                              key={equip.id}
+                              href={`/catalog/${equip.anchor}`}
+                              className="dropdown-link"
+                              onClick={() => {
+                                closeMenu();
+                                setIsCatalogDropdownOpen(false);
+                              }}
+                            >
+                              <span className="dropdown-text">{equip.shortName}</span>
+                            </Link>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                ) : (
+                  <Link key={item.href} href={item.href} className="menu-link">
+                    {item.label}
+                  </Link>
+                )
               ))}
             </div>
 

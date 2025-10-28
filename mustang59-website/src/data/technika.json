@@ -1,0 +1,431 @@
+{
+  "images": [
+    {
+      "id": 1,
+      "src": "/images/technika/1.jpg",
+      "alt": "Экскаватор-погрузчик JCB",
+      "title": "Экскаватор-погрузчик JCB 4CX",
+      "category": "Экскаваторы"
+    },
+    {
+      "id": 2,
+      "src": "/images/technika/2.jpg",
+      "alt": "Бульдозер CAT",
+      "title": "Бульдозер Caterpillar D6",
+      "category": "Бульдозеры"
+    },
+    {
+      "id": 3,
+      "src": "/images/technika/3.jpg",
+      "alt": "Автокран Liebherr",
+      "title": "Автокран Liebherr LTM 1100",
+      "category": "Краны"
+    },
+    {
+      "id": 4,
+      "src": "/images/technika/4.jpg",
+      "alt": "Фронтальный погрузчик",
+      "title": "Фронтальный погрузчик Volvo L150",
+      "category": "Погрузчики"
+    },
+    {
+      "id": 5,
+      "src": "/images/technika/5.jpg",
+      "alt": "Самосвал Howo",
+      "title": "Самосвал Sinotruk Howo",
+      "category": "Самосвалы"
+    },
+    {
+      "id": 6,
+      "src": "/images/technika/6.jpg",
+      "alt": "Манипулятор",
+      "title": "Манипулятор с КМУ",
+      "category": "Манипуляторы"
+    },
+    {
+      "id": 7,
+      "src": "/images/technika/7.jpg",
+      "alt": "Экскаватор-погрузчик JCB",
+      "title": "Экскаватор-погрузчик JCB 4CX",
+      "category": "Экскаваторы"
+    },
+    {
+      "id": 8,
+      "src": "/images/technika/8.jpg",
+      "alt": "Бульдозер CAT",
+      "title": "Бульдозер Caterpillar D6",
+      "category": "Бульдозеры"
+    },
+    {
+      "id": 9,
+      "src": "/images/technika/9.jpg",
+      "alt": "Автокран Liebherr",
+      "title": "Автокран Liebherr LTM 1100",
+      "category": "Краны"
+    },
+    {
+      "id": 10,
+      "src": "/images/technika/10.jpg",
+      "alt": "Фронтальный погрузчик",
+      "title": "Фронтальный погрузчик Volvo L150",
+      "category": "Погрузчики"
+    },
+    {
+      "id": 11,
+      "src": "/images/technika/11.jpg",
+      "alt": "Самосвал Howo",
+      "title": "Самосвал Sinotruk Howo",
+      "category": "Самосвалы"
+    },
+    {
+      "id": 12,
+      "src": "/images/technika/12.jpg",
+      "alt": "Манипулятор",
+      "title": "Манипулятор с КМУ",
+      "category": "Манипуляторы"
+    },
+    {
+      "id": 13,
+      "src": "/images/technika/13.jpg",
+      "alt": "Экскаватор-погрузчик JCB",
+      "title": "Экскаватор-погрузчик JCB 4CX",
+      "category": "Экскаваторы"
+    },
+    {
+      "id": 14,
+      "src": "/images/technika/14.jpg",
+      "alt": "Бульдозер CAT",
+      "title": "Бульдозер Caterpillar D6",
+      "category": "Бульдозеры"
+    },
+    {
+      "id": 15,
+      "src": "/images/technika/15.jpg",
+      "alt": "Автокран Liebherr",
+      "title": "Автокран Liebherr LTM 1100",
+      "category": "Краны"
+    },
+    {
+      "id": 16,
+      "src": "/images/technika/16.jpg",
+      "alt": "Фронтальный погрузчик",
+      "title": "Фронтальный погрузчик Volvo L150",
+      "category": "Погрузчики"
+    },
+    {
+      "id": 17,
+      "src": "/images/technika/17.jpg",
+      "alt": "Самосвал Howo",
+      "title": "Самосвал Sinotruk Howo",
+      "category": "Самосвалы"
+    },
+    {
+      "id": 18,
+      "src": "/images/technika/18.jpg",
+      "alt": "Манипулятор",
+      "title": "Манипулятор с КМУ",
+      "category": "Манипуляторы"
+    },
+    {
+      "id": 19,
+      "src": "/images/technika/19.jpg",
+      "alt": "Экскаватор-погрузчик JCB",
+      "title": "Экскаватор-погрузчик JCB 4CX",
+      "category": "Экскаваторы"
+    },
+    {
+      "id": 20,
+      "src": "/images/technika/20.jpg",
+      "alt": "Бульдозер CAT",
+      "title": "Бульдозер Caterpillar D6",
+      "category": "Бульдозеры"
+    },
+    {
+      "id": 21,
+      "src": "/images/technika/21.jpg",
+      "alt": "Автокран Liebherr",
+      "title": "Автокран Liebherr LTM 1100",
+      "category": "Краны"
+    },
+    {
+      "id": 22,
+      "src": "/images/technika/22.jpg",
+      "alt": "Фронтальный погрузчик",
+      "title": "Фронтальный погрузчик Volvo L150",
+      "category": "Погрузчики"
+    },
+    {
+      "id": 23,
+      "src": "/images/technika/23.jpg",
+      "alt": "Самосвал Howo",
+      "title": "Самосвал Sinotruk Howo",
+      "category": "Самосвалы"
+    },
+    {
+      "id": 24,
+      "src": "/images/technika/24.jpg",
+      "alt": "Манипулятор",
+      "title": "Манипулятор с КМУ",
+      "category": "Манипуляторы"
+    },
+    {
+      "id": 25,
+      "src": "/images/technika/25.jpg",
+      "alt": "Экскаватор-погрузчик JCB",
+      "title": "Экскаватор-погрузчик JCB 4CX",
+      "category": "Экскаваторы"
+    },
+    {
+      "id": 26,
+      "src": "/images/technika/26.jpg",
+      "alt": "Бульдозер CAT",
+      "title": "Бульдозер Caterpillar D6",
+      "category": "Бульдозеры"
+    },
+    {
+      "id": 27,
+      "src": "/images/technika/27.jpg",
+      "alt": "Автокран Liebherr",
+      "title": "Автокран Liebherr LTM 1100",
+      "category": "Краны"
+    },
+    {
+      "id": 28,
+      "src": "/images/technika/28.jpg",
+      "alt": "Фронтальный погрузчик",
+      "title": "Фронтальный погрузчик Volvo L150",
+      "category": "Погрузчики"
+    },
+    {
+      "id": 29,
+      "src": "/images/technika/29.jpg",
+      "alt": "Самосвал Howo",
+      "title": "Самосвал Sinotruk Howo",
+      "category": "Самосвалы"
+    },
+    {
+      "id": 30,
+      "src": "/images/technika/30.jpg",
+      "alt": "Манипулятор",
+      "title": "Манипулятор с КМУ",
+      "category": "Манипуляторы"
+    },
+    {
+      "id": 31,
+      "src": "/images/technika/31.jpg",
+      "alt": "Экскаватор-погрузчик JCB",
+      "title": "Экскаватор-погрузчик JCB 4CX",
+      "category": "Экскаваторы"
+    },
+    {
+      "id": 32,
+      "src": "/images/technika/32.jpg",
+      "alt": "Бульдозер CAT",
+      "title": "Бульдозер Caterpillar D6",
+      "category": "Бульдозеры"
+    },
+    {
+      "id": 33,
+      "src": "/images/technika/33.jpg",
+      "alt": "Автокран Liebherr",
+      "title": "Автокран Liebherr LTM 1100",
+      "category": "Краны"
+    },
+    {
+      "id": 34,
+      "src": "/images/technika/34.jpg",
+      "alt": "Фронтальный погрузчик",
+      "title": "Фронтальный погрузчик Volvo L150",
+      "category": "Погрузчики"
+    },
+    {
+      "id": 35,
+      "src": "/images/technika/35.jpg",
+      "alt": "Самосвал Howo",
+      "title": "Самосвал Sinotruk Howo",
+      "category": "Самосвалы"
+    },
+    {
+      "id": 36,
+      "src": "/images/technika/36.jpg",
+      "alt": "Манипулятор",
+      "title": "Манипулятор с КМУ",
+      "category": "Манипуляторы"
+    },
+    {
+      "id": 37,
+      "src": "/images/technika/37.jpg",
+      "alt": "Экскаватор-погрузчик JCB",
+      "title": "Экскаватор-погрузчик JCB 4CX",
+      "category": "Экскаваторы"
+    },
+    {
+      "id": 38,
+      "src": "/images/technika/38.jpg",
+      "alt": "Бульдозер CAT",
+      "title": "Бульдозер Caterpillar D6",
+      "category": "Бульдозеры"
+    },
+    {
+      "id": 39,
+      "src": "/images/technika/39.jpg",
+      "alt": "Автокран Liebherr",
+      "title": "Автокран Liebherr LTM 1100",
+      "category": "Краны"
+    },
+    {
+      "id": 40,
+      "src": "/images/technika/40.jpg",
+      "alt": "Фронтальный погрузчик",
+      "title": "Фронтальный погрузчик Volvo L150",
+      "category": "Погрузчики"
+    },
+    {
+      "id": 41,
+      "src": "/images/technika/41.jpg",
+      "alt": "Самосвал Howo",
+      "title": "Самосвал Sinotruk Howo",
+      "category": "Самосвалы"
+    },
+    {
+      "id": 42,
+      "src": "/images/technika/42.jpg",
+      "alt": "Манипулятор",
+      "title": "Манипулятор с КМУ",
+      "category": "Манипуляторы"
+    },
+    {
+      "id": 43,
+      "src": "/images/technika/43.jpg",
+      "alt": "Экскаватор-погрузчик JCB",
+      "title": "Экскаватор-погрузчик JCB 4CX",
+      "category": "Экскаваторы"
+    },
+    {
+      "id": 44,
+      "src": "/images/technika/44.jpg",
+      "alt": "Бульдозер CAT",
+      "title": "Бульдозер Caterpillar D6",
+      "category": "Бульдозеры"
+    },
+    {
+      "id": 45,
+      "src": "/images/technika/45.jpg",
+      "alt": "Автокран Liebherr",
+      "title": "Автокран Liebherr LTM 1100",
+      "category": "Краны"
+    },
+    {
+      "id": 46,
+      "src": "/images/technika/46.jpg",
+      "alt": "Фронтальный погрузчик",
+      "title": "Фронтальный погрузчик Volvo L150",
+      "category": "Погрузчики"
+    },
+    {
+      "id": 47,
+      "src": "/images/technika/47.jpg",
+      "alt": "Самосвал Howo",
+      "title": "Самосвал Sinotruk Howo",
+      "category": "Самосвалы"
+    },
+    {
+      "id": 48,
+      "src": "/images/technika/48.jpg",
+      "alt": "Манипулятор",
+      "title": "Манипулятор с КМУ",
+      "category": "Манипуляторы"
+    },
+    {
+      "id": 49,
+      "src": "/images/technika/49.jpg",
+      "alt": "Экскаватор-погрузчик JCB",
+      "title": "Экскаватор-погрузчик JCB 4CX",
+      "category": "Экскаваторы"
+    },
+    {
+      "id": 50,
+      "src": "/images/technika/50.jpg",
+      "alt": "Бульдозер CAT",
+      "title": "Бульдозер Caterpillar D6",
+      "category": "Бульдозеры"
+    },
+    {
+      "id": 51,
+      "src": "/images/technika/51.jpg",
+      "alt": "Автокран Liebherr",
+      "title": "Автокран Liebherr LTM 1100",
+      "category": "Краны"
+    },
+    {
+      "id": 52,
+      "src": "/images/technika/52.jpg",
+      "alt": "Фронтальный погрузчик",
+      "title": "Фронтальный погрузчик Volvo L150",
+      "category": "Погрузчики"
+    },
+    {
+      "id": 53,
+      "src": "/images/technika/53.jpg",
+      "alt": "Самосвал Howo",
+      "title": "Самосвал Sinotruk Howo",
+      "category": "Самосвалы"
+    },
+    {
+      "id": 54,
+      "src": "/images/technika/54.jpg",
+      "alt": "Манипулятор",
+      "title": "Манипулятор с КМУ",
+      "category": "Манипуляторы"
+    },
+    {
+      "id": 55,
+      "src": "/images/technika/55.jpg",
+      "alt": "Экскаватор-погрузчик JCB",
+      "title": "Экскаватор-погрузчик JCB 4CX",
+      "category": "Экскаваторы"
+    },
+    {
+      "id": 56,
+      "src": "/images/technika/56.jpg",
+      "alt": "Бульдозер CAT",
+      "title": "Бульдозер Caterpillar D6",
+      "category": "Бульдозеры"
+    },
+    {
+      "id": 57,
+      "src": "/images/technika/57.jpg",
+      "alt": "Автокран Liebherr",
+      "title": "Автокран Liebherr LTM 1100",
+      "category": "Краны"
+    },
+    {
+      "id": 58,
+      "src": "/images/technika/58.jpg",
+      "alt": "Фронтальный погрузчик",
+      "title": "Фронтальный погрузчик Volvo L150",
+      "category": "Погрузчики"
+    },
+    {
+      "id": 59,
+      "src": "/images/technika/59.jpg",
+      "alt": "Самосвал Howo",
+      "title": "Самосвал Sinotruk Howo",
+      "category": "Самосвалы"
+    },
+    {
+      "id": 60,
+      "src": "/images/technika/60.jpg",
+      "alt": "Манипулятор",
+      "title": "Манипулятор с КМУ",
+      "category": "Манипуляторы"
+    },
+    {
+      "id": 61,
+      "src": "/images/technika/61.jpg",
+      "alt": "Манипулятор",
+      "title": "Манипулятор с КМУ",
+      "category": "Манипуляторы"
+    }
+  ]
+}

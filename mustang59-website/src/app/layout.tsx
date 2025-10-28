@@ -52,7 +52,7 @@ export default function RootLayout({
       </head>
       <body className={inter.className}>
         <Header />
-        <HomePage />
+        {children}
         <Footer />
       </body>
     </html>

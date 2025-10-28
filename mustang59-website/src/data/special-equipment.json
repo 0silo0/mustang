@@ -5,107 +5,121 @@
     {
       "id": 1,
       "name": "Аренда автовышки",
-      "image": "/images/equipment/avtovyshka.webp"
+      "image": "/images/equipment/avtovyshka.webp",
+      "anchor": "avtovyshka",
+      "shortName": "Автовышка"
     },
     {
       "id": 2,
       "name": "Аренда автокрана",
-      "image": "/images/equipment/avtokran.webp"
+      "image": "/images/equipment/avtokran.webp",
+      "anchor": "avtokran",
+      "shortName": "Автокран"
     },
     {
       "id": 3,
       "name": "Аренда манипулятора",
-      "image": "/images/equipment/manipulyator.webp"
+      "image": "/images/equipment/manipulyator.webp",
+      "anchor": "manipulyator",
+      "shortName": "Манипулятор"
     },
     {
       "id": 4,
       "name": "Аренда мини-погрузчика",
-      "image": "/images/equipment/mini-pogruzchik.webp"
+      "image": "/images/equipment/mini-pogruzchik.webp",
+      "anchor": "mini-pogruzchik",
+      "shortName": "Мини-погрузчик"
     },
     {
       "id": 5,
       "name": "Аренда фронтального погрузчика",
-      "image": "/images/equipment/frontalny-pogruzchik.webp"
+      "image": "/images/equipment/frontalny-pogruzchik.webp",
+      "anchor": "frontalny-pogruzchik",
+      "shortName": "Фронтальный погрузчик"
     },
     {
       "id": 6,
-      "name": "Аренда вилочного погрузчика",
-      "image": "/images/equipment/vilochny.webp"
+      "name": "Аренда мини-экскаватора",
+      "image": "/images/equipment/mini-excavator.webp",
+      "anchor": "mini-excavator",
+      "shortName": "Мини-экскаватор"
     },
     {
       "id": 7,
-      "name": "Аренда мини-экскаватора",
-      "image": "/images/equipment/mini-excavator.webp"
+      "name": "Аренда экскаватора-погрузчика",
+      "image": "/images/equipment/excavator-pogruzchik.webp",
+      "anchor": "excavator-pogruzchik",
+      "shortName": "Экскаватор-погрузчик"
     },
     {
       "id": 8,
-      "name": "Аренда экскаватора-погрузчика",
-      "image": "/images/equipment/excavator-pogruzchik.webp"
+      "name": "Аренда колесного экскаватора",
+      "image": "/images/equipment/kolesny-excavator.webp",
+      "anchor": "kolesny-excavator",
+      "shortName": "Колесный экскаватор"
     },
     {
       "id": 9,
-      "name": "Аренда колесного экскаватора",
-      "image": "/images/equipment/kolesny-excavator.webp"
+      "name": "Аренда гусеничного экскаватора",
+      "image": "/images/equipment/gusenichny-excavator.webp",
+      "anchor": "gusenichny-excavator",
+      "shortName": "Гусеничный экскаватор"
     },
     {
       "id": 10,
-      "name": "Аренда гусеничного экскаватора",
-      "image": "/images/equipment/gusenichny-excavator.webp"
+      "name": "Аренда гидромолота",
+      "image": "/images/equipment/gidromolot.webp",
+      "anchor": "gidromolot",
+      "shortName": "Гидромолот"
     },
     {
       "id": 11,
-      "name": "Аренда гидромолота",
-      "image": "/images/equipment/gidromolot.webp"
+      "name": "Аренда самосвала",
+      "image": "/images/equipment/samosval.webp",
+      "anchor": "samosval",
+      "shortName": "Самосвал"
     },
     {
       "id": 12,
-      "name": "Аренда самосвала",
-      "image": "/images/equipment/samosval.webp"
+      "name": "Аренда бульдозера",
+      "image": "/images/equipment/buldozer.webp",
+      "anchor": "buldozer",
+      "shortName": "Бульдозер"
     },
     {
       "id": 13,
-      "name": "Аренда бульдозера",
-      "image": "/images/equipment/buldozer.webp"
+      "name": "Аренда грейдера",
+      "image": "/images/equipment/greyder.webp",
+      "anchor": "greyder",
+      "shortName": "Грейдер"
     },
     {
       "id": 14,
-      "name": "Аренда грейдера",
-      "image": "/images/equipment/greyder.webp"
+      "name": "Аренда грунтового катка",
+      "image": "/images/equipment/katok.webp",
+      "anchor": "katok",
+      "shortName": "Грунтовый каток"
     },
     {
       "id": 15,
-      "name": "Аренда грунтового катка",
-      "image": "/images/equipment/katok.webp"
+      "name": "Аренда бортового автомобиля",
+      "image": "/images/equipment/bortovoy.webp",
+      "anchor": "bortovoy",
+      "shortName": "Бортовой автомобиль"
     },
     {
       "id": 16,
-      "name": "Аренда бортового автомобиля",
-      "image": "/images/equipment/bortovoy.webp"
+      "name": "Аренда трала",
+      "image": "/images/equipment/tral.webp",
+      "anchor": "tral",
+      "shortName": "Трал"
     },
     {
       "id": 17,
-      "name": "Аренда трала",
-      "image": "/images/equipment/tral.webp"
-    },
-    {
-      "id": 18,
-      "name": "Аренда фургона",
-      "image": "/images/equipment/furgon.webp"
-    },
-    {
-      "id": 19,
       "name": "Аренда ямобура",
-      "image": "/images/equipment/yamobur.webp"
-    },
-    {
-      "id": 20,
-      "name": "Аренда миксера/швинга",
-      "image": "/images/equipment/mixer.webp"
-    },
-    {
-      "id": 21,
-      "name": "Аренда компрессора",
-      "image": "/images/equipment/compressor.webp"
+      "image": "/images/equipment/yamobur.webp",
+      "anchor": "yamobur",
+      "shortName": "Ямобур"
     }
   ]
 }

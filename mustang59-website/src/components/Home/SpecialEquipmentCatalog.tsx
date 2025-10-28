@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import equipmentData from '@/data/special-equipment.json';
+import Link from 'next/link';
 
 export default function SpecialEquipmentCatalog() {
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
@@ -19,11 +20,13 @@ export default function SpecialEquipmentCatalog() {
         {/* Сетка карточек */}
         <div className="equipment-grid">
           {equipmentData.equipment.map((item) => (
-            <div
+            <Link
               key={item.id}
+              href={`/catalog/${item.anchor}`}
               className="equipment-card"
               onMouseEnter={() => setHoveredCard(item.id)}
               onMouseLeave={() => setHoveredCard(null)}
+              style={{ textDecoration: 'none' }}
             >
               {/* Картинка техники */}
               <div className="card-image">
@@ -46,7 +49,7 @@ export default function SpecialEquipmentCatalog() {
               <div 
                 className={`card-strip ${hoveredCard === item.id ? 'card-strip-hover' : ''}`}
               />
-            </div>
+            </Link>
           ))}
         </div>
       </div>

@@ -77,13 +77,6 @@ export default function SwiperSection() {
         }}
         spaceBetween={0}
         slidesPerView={1}
-        //navigation
-        // pagination={{ 
-        //   clickable: true,
-        //   renderBullet: (index, className) => {
-        //     return `<span class="${className}">${index + 1}</span>`;
-        //   }
-        // }}
         autoplay={{
           delay: 5000,
           disableOnInteraction: false,
@@ -114,7 +107,7 @@ export default function SwiperSection() {
                       <Link href="/contact" className="btn btn-primary btn-large">
                         {slide.buttonText}
                       </Link>
-                      <Link href="/services" className="btn btn-secondary btn-large">
+                      <Link href={slide.id === 1 ? "/catalog" : "#"} className="btn btn-secondary btn-large">
                         {slide.linkText}
                       </Link>
                     </div>

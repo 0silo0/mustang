@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import workProcessData from '@/data/work-process.json';
+import Link from 'next/link';
 
 export default function WorkProcess() {
   const [hoveredPhoto, setHoveredPhoto] = useState<number | null>(null);
@@ -38,7 +39,7 @@ export default function WorkProcess() {
                 style={{ objectFit: 'cover' }}
               />
               <div className="photo-overlay">
-                <span className="photo-title">Рабочий процесс</span>
+                {/* <span className="photo-title">Рабочий процесс</span> */}
               </div>
             </div>
           ))}
@@ -46,9 +47,9 @@ export default function WorkProcess() {
 
         {/* Кнопка "Смотреть все фото" */}
         <div className="work-process-footer">
-          <button className="view-all-button">
+          <Link href="/gallery" className="view-all-button" style={{ textDecoration: 'none' }}>
             Смотреть все фото
-          </button>
+          </Link>
         </div>
       </div>
     </section>

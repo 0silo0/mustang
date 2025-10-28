@@ -26,6 +26,9 @@
 @import './services.css';
 @import './advantages.css';
 @import './workProcess.css';
+@import './about.css';
+@import './gallery.css';
+@import './techPage.css';
 
 /* Общие сбросы и базовые стили */
 * {

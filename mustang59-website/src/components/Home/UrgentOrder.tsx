@@ -31,8 +31,8 @@ export default function UrgentOrder() {
           <div className="urgent-order-contact">
             <div className="urgent-order-phone">
               <span className="phone-icon">📞</span>
-              <a href="tel:+73952940100" className="phone-number">
-                +7 (3952) 940-100
+              <a href="tel:+7 904 847 4909" className="phone-number">
+                +7 (904) 847 4909
               </a>
             </div>
             
