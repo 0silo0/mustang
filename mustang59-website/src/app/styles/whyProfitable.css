@@ -1,0 +1,168 @@
+/* Секция "Почему выгодно" */
+.why-profitable {
+  background: 
+    linear-gradient(to right, rgba(10,10,10,0.8) 0%, rgba(10,10,10,0.8) 100%),
+    url('/images/metall.jpg') center/cover no-repeat;
+  min-height: 350px;
+  display: flex;
+  align-items: center;
+  padding: 40px 0;
+  border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+.why-profitable-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  width: 100%;
+}
+
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+  align-items: start;
+}
+
+.benefit-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 30px 10px;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+  border: 1px solid white;
+  transition: all 0.3s ease;
+  height: 110%;
+  width: 90%;
+  backdrop-filter: blur(2px);
+}
+
+.benefit-item:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(212, 175, 55, 0.4);
+  transform: translateY(-5px);
+  cursor: pointer;
+}
+
+.benefit-icon {
+  margin-bottom: 20px;
+  margin-top: -40px;
+}
+
+.icon-placeholder {
+  width: 80px;
+  height: 80px;
+  background: var(--primary);
+  border-radius: 30%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--black);
+}
+
+.benefit-text {
+  color: var(--foreground);
+  font-size: 0.9rem;
+  font-weight: 500;
+  line-height: 1.4;
+  margin: 0;
+}
+
+/* Адаптивность для секции */
+@media (max-width: 1024px) {
+  .benefits-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+  }
+  
+  .benefit-item {
+    padding: 15px 10px;
+  }
+  
+  .benefit-text {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .benefits-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+  
+  .why-profitable {
+    min-height: 300px;
+    padding: 30px 0;
+  }
+  
+  .benefit-text {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .benefits-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+  
+  .benefit-item {
+    padding: 25px 15px;
+    height: auto;
+    width: 100%;
+    margin: 0 auto;
+    max-width: 300px;
+  }
+  
+  .why-profitable {
+    min-height: 500px;
+    padding: 30px 0;
+  }
+  
+  .benefit-text {
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+  
+  .benefit-icon {
+    margin-top: -30px;
+    margin-bottom: 15px;
+  }
+  
+  .icon-placeholder {
+    width: 60px;
+    height: 60px;
+    font-size: 1.2rem;
+  }
+  
+  .why-profitable-container {
+    padding: 0 15px;
+  }
+}
+
+/* Для очень маленьких экранов */
+@media (max-width: 360px) {
+  .benefit-item {
+    padding: 20px 12px;
+    max-width: 280px;
+  }
+  
+  .why-profitable {
+    min-height: 550px;
+    padding: 25px 0;
+  }
+  
+  .benefit-text {
+    font-size: 0.85rem;
+  }
+  
+  .icon-placeholder {
+    width: 50px;
+    height: 50px;
+    font-size: 1.1rem;
+  }
+}

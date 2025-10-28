@@ -1,0 +1,194 @@
+/* Блок срочного заказа */
+.urgent-order {
+  min-height: 250px;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-hover) 100%);
+  padding: 40px 0;
+  display: flex;
+  align-items: center;
+}
+
+.urgent-order-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  width: 100%;
+}
+
+.urgent-order-content {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+/* Левая часть - информация */
+.urgent-order-info {
+  color: var(--black);
+}
+
+.urgent-order-title {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+  line-height: 1.2;
+  color: black;
+}
+
+.urgent-order-description {
+  font-size: 1.1rem;
+  line-height: 1;
+}
+
+.urgent-order-description p {
+  margin-bottom: 14px;
+}
+
+.urgent-order-description p:last-child {
+  margin-bottom: 0;
+}
+
+/* Правая часть - контакты */
+.urgent-order-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  align-items: center;
+}
+
+.urgent-order-phone {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 15px 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.phone-icon {
+  font-size: 1.5rem;
+}
+
+.phone-number {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--black);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.phone-number:hover {
+  color: #333;
+}
+
+/* Форма */
+.urgent-order-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  max-width: 300px;
+}
+
+.phone-input {
+  padding: 12px 15px;
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  border-radius: 8px;
+  font-size: 1rem;
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--black);
+  transition: all 0.3s ease;
+}
+
+.phone-input:focus {
+  outline: none;
+  border-color: var(--black);
+  background: var(--white);
+}
+
+.phone-input::placeholder {
+  color: var(--gray);
+}
+
+.order-button {
+  padding: 12px 20px;
+  background: var(--black);
+  color: var(--white);
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.order-button:hover {
+  background: #333;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Адаптивность */
+@media (max-width: 1024px) {
+  .urgent-order-content {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    text-align: center;
+  }
+  
+  .urgent-order-title {
+    font-size: 1.8rem;
+  }
+  
+  .urgent-order-description {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .urgent-order {
+    min-height: 300px;
+    padding: 30px 0;
+  }
+  
+  .urgent-order-title {
+    font-size: 1.6rem;
+  }
+  
+  .urgent-order-phone {
+    flex-direction: column;
+    gap: 10px;
+    padding: 12px 15px;
+  }
+  
+  .phone-number {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .urgent-order {
+    min-height: 350px;
+    padding: 25px 0;
+  }
+  
+  .urgent-order-title {
+    font-size: 1.4rem;
+  }
+  
+  .urgent-order-description {
+    font-size: 0.9rem;
+  }
+  
+  .urgent-order-form {
+    max-width: 100%;
+  }
+  
+  .phone-input {
+    padding: 10px 12px;
+  }
+  
+  .order-button {
+    padding: 10px 15px;
+  }
+}

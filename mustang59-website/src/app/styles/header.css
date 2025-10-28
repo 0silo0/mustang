@@ -1,37 +1,45 @@
-/* Убираем sticky с header, теперь это обычный блок */
-.header {
+/* Основной контейнер хедера */
+.header-container {
   position: relative;
   z-index: 1000;
-  transform: translateZ(0);
-  -webkit-backface-visibility: hidden;
+  background: white;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Обертка для верхней части - fixed чтобы скрывалась плавно */
-.header-top-section {
+/* Sticky состояние - когда хедер доходит до верха */
+.header-container.sticky .main-menu {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 1001;
-  background: white;
-  will-change: transform;
-  pointer-events: auto;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  animation: slideDown 0.3s ease;
 }
 
-/* Меню - обычный блок в потоке */
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+/* Верхняя часть */
+.header-top-section {
+  background: white;
+}
+
+/* Меню */
 .main-menu {
   background: var(--primary);
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  margin-top: 200px; /* Высота верхней части, подкорректируйте под вашу реальную высоту */
+  border-top: 1px solid #e5e5e5;
 }
 
-/* Добавляем отступ для body чтобы контент не заезжал под фиксированный хедер */
-body {
-  padding-top: 250px; /* Высота верхней части + меню */
+/* ОСНОВНОЙ КОНТЕНТ - добавляем отступ чтобы не перекрывался sticky хедером */
+.main-content {
+  position: relative;
+  z-index: 1;
 }
 
 /* Верхняя линия */
@@ -74,6 +82,7 @@ body {
   background-color: var(--white);
   padding: 15px 0;
   border-bottom: 1px solid #e5e5e5;
+  position: relative;
 }
 
 .mainline-content {
@@ -202,7 +211,7 @@ body {
   box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
 }
 
-/* Главное меню */
+/* Главное меню для десктопа */
 .menu-container {
   max-width: 1200px;
   margin: 0 auto;
@@ -221,7 +230,7 @@ body {
   text-decoration: none;
   font-weight: 600;
   font-size: 0.9rem;
-  padding: 15px 10px;
+  padding: 20px 10px;
   transition: all 0.3s ease;
   position: relative;
   text-align: center;
@@ -229,24 +238,112 @@ body {
 }
 
 .menu-link:hover {
-  background: rgba(0, 0, 0, 0.1);
+  background: black;
+  color: white;
+  border-radius: 4px;
+}
+
+/* Бургер меню */
+.burger-menu {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 21px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 1002;
+}
+
+.burger-line {
+  width: 100%;
+  height: 3px;
+  background: var(--black);
+  border-radius: 3px;
+  transition: all 0.3s ease;
+  transform-origin: center;
+}
+
+.burger-menu[data-open="true"] .burger-line:nth-child(1) {
+  transform: rotate(45deg) translate(6px, 6px);
+}
+
+.burger-menu[data-open="true"] .burger-line:nth-child(2) {
+  opacity: 0;
+}
+
+.burger-menu[data-open="true"] .burger-line:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* Мобильное меню */
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 300px;
+  height: 100vh;
+  background: var(--white);
+  z-index: 1002;
+  transition: right 0.3s ease;
+  box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
+}
+
+.mobile-menu[data-open="true"] {
+  right: 0;
+}
+
+.mobile-menu-header {
+  padding: 20px;
+  border-bottom: 1px solid #e5e5e5;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.mobile-menu-title {
+  font-size: 1.2rem;
+  font-weight: 700;
   color: var(--black);
 }
 
-.menu-link::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  width: 0;
-  height: 2px;
-  background: var(--black);
-  transition: all 0.3s ease;
-  transform: translateX(-50%);
+.mobile-menu-close {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--black);
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.menu-link:hover::after {
-  width: 80%;
+.mobile-menu-content {
+  padding: 20px;
+}
+
+.mobile-menu-link {
+  display: block;
+  padding: 15px 0;
+  color: var(--black);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  border-bottom: 1px solid #f0f0f0;
+  transition: color 0.3s ease;
+}
+
+.mobile-menu-link:hover {
+  color: var(--primary);
+}
+
+.mobile-menu-link:last-child {
+  border-bottom: none;
 }
 
 /* Оверлей мобильного меню */
@@ -256,8 +353,8 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.7);
-  z-index: 999;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1001;
   opacity: 0;
   visibility: hidden;
   transition: all 0.3s ease;
@@ -291,12 +388,9 @@ body {
     font-size: 0.8rem;
   }
 
-  body {
-    padding-top: 220px;
-  }
-
-  .main-menu {
-    margin-top: 180px;
+  /* Отступ для контента на планшетах */
+  .main-content {
+    margin-top: 220px;
   }
 }
 
@@ -332,16 +426,48 @@ body {
     width: 100%;
   }
   
-  .menu-link {
-    flex: 1 1 calc(50% - 10px);
+  /* ВАЖНОЕ ИЗМЕНЕНИЕ: НЕ скрываем main-menu на мобилках, а скрываем только menu-content */
+  .menu-content {
+    display: none;
   }
-
-  body {
-    padding-top: 200px;
+  
+  /* Показываем бургер меню ВНУТРИ menu-container */
+  .burger-menu {
+    display: flex;
   }
-
+  
+  /* Делаем menu-container sticky на мобилках */
+  .menu-container {
+    position: sticky;
+    top: 0;
+    background: var(--primary);
+    padding: 15px 20px;
+    z-index: 1002;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 60px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Убираем margin-top у main-menu на мобилках */
   .main-menu {
-    margin-top: 160px;
+    margin-top: 0;
+    position: relative;
+  }
+  
+  /* Корректируем отступы для контента на мобилках */
+  .main-content {
+    margin-top: 180px; /* Высота header-top-section + main-menu */
+  }
+
+  /* Убираем padding у header-mainline чтобы контакты не наезжали */
+  .header-mainline {
+    padding: 10px 0;
+  }
+
+  .mainline-content {
+    padding: 0 20px;
   }
 }
 
@@ -358,19 +484,19 @@ body {
     font-size: 1rem;
   }
   
-  .menu-link {
-    flex: 1 1 100%;
-  }
-  
   .topline-email, .topline-hours {
     font-size: 0.75rem;
   }
 
-  body {
-    padding-top: 180px;
+  .main-content {
+    margin-top: 180px;
   }
 
-  .main-menu {
-    margin-top: 140px;
+  .mobile-menu {
+    width: 100%;
+  }
+  
+  .menu-container {
+    padding: 15px;
   }
 }

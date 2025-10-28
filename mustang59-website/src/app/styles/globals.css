@@ -19,7 +19,13 @@
 @import './header.css';
 @import './footer.css';
 @import './sections.css';
-@import "./swiper.css";
+@import './swiper.css';
+@import './whyProfitable.css';
+@import './specialEquipmentCatalog.css';
+@import './urgentOrder.css';
+@import './services.css';
+@import './advantages.css';
+@import './workProcess.css';
 
 /* Общие сбросы и базовые стили */
 * {

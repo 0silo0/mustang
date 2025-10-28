@@ -1,0 +1,46 @@
+{
+  "title": "Рабочий процесс",
+  "description": "Фотогалерея произведенных работ в Перми и населенных пунктах Пермского края",
+  "photos": [
+    {
+      "id": 1,
+      "image": "/images/work-process/1.jpg",
+      "size": "small"
+    },
+    {
+      "id": 2,
+      "image": "/images/work-process/2.jpg",
+      "size": "tall"
+    },
+    {
+      "id": 3,
+      "image": "/images/work-process/3.jpg",
+      "size": "small"
+    },
+    {
+      "id": 4,
+      "image": "/images/work-process/4.jpg",
+      "size": "small"
+    },
+    {
+      "id": 5,
+      "image": "/images/work-process/5.jpg",
+      "size": "tall"
+    },
+    {
+      "id": 6,
+      "image": "/images/work-process/6.jpg",
+      "size": "small"
+    },
+    {
+      "id": 7,
+      "image": "/images/work-process/7.jpg",
+      "size": "small"
+    },
+    {
+      "id": 8,
+      "image": "/images/work-process/8.jpg",
+      "size": "small"
+    }
+  ]
+}

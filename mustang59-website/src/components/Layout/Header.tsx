@@ -6,9 +6,9 @@ import Image from 'next/image';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [headerTransform, setHeaderTransform] = useState(0);
-  const lastScrollY = useRef(0);
-  const headerTopRef = useRef<HTMLDivElement>(null);
+  const [isSticky, setIsSticky] = useState(false);
+  const headerRef = useRef<HTMLDivElement>(null);
+  const mobileMenuRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (isMenuOpen) {
@@ -22,6 +22,42 @@ export default function Header() {
     return () => {
       document.body.classList.remove('menu-open');
       document.documentElement.style.overflow = 'unset';
+    };
+  }, [isMenuOpen]);
+
+  // Логика для sticky хедера
+  useEffect(() => {
+    const handleScroll = () => {
+      if (headerRef.current) {
+        const headerHeight = headerRef.current.offsetHeight;
+        const scrollPosition = window.scrollY;
+        
+        // Активируем sticky когда хедер доходит до верха окна
+        setIsSticky(scrollPosition > headerHeight);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
+  // Закрытие меню при клике вне его области
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (mobileMenuRef.current && !mobileMenuRef.current.contains(event.target as Node)) {
+        setIsMenuOpen(false);
+      }
+    };
+
+    if (isMenuOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
     };
   }, [isMenuOpen]);
 
@@ -40,121 +76,140 @@ export default function Header() {
     };
   }, [isMenuOpen]);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-      const headerHeight = headerTopRef.current?.offsetHeight || 0;
-      
-      // Плавное скрытие верхней части при скролле
-      const progress = Math.min(currentScrollY / headerHeight, 1);
-      const transform = -progress * headerHeight;
-      
-      setHeaderTransform(transform);
-      lastScrollY.current = currentScrollY;
-    };
-
-    let ticking = false;
-    const onScroll = () => {
-      if (!ticking) {
-        requestAnimationFrame(() => {
-          handleScroll();
-          ticking = false;
-        });
-        ticking = true;
-      }
-    };
-
-    window.addEventListener('scroll', onScroll, { passive: true });
-    
-    return () => {
-      window.removeEventListener('scroll', onScroll);
-    };
-  }, []);
-
+  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
   const closeMenu = () => setIsMenuOpen(false);
+
+  const menuItems = [
+    { href: "/services", label: "О компании" },
+    { href: "/catalog", label: "Каталог запчастей" },
+    { href: "/about", label: "О компании" },
+    { href: "/reviews", label: "Отзывы" },
+    { href: "/contacts", label: "Контакты" },
+    { href: "/promotions", label: "Акции" }
+  ];
 
   return (
     <>
-      {/* Верхняя часть которая плавно скрывается при скролле */}
+      {/* Весь хедер в одном блоке */}
       <div 
-        ref={headerTopRef}
-        className="header-top-section"
-        style={{ 
-          transform: `translateY(${headerTransform}px)`,
-          transition: 'transform 0.1s ease-out'
-        }}
+        ref={headerRef}
+        className={`header-container ${isSticky ? 'sticky' : ''}`}
       >
-        {/* Верхняя линия */}
-        <div className="header-topline">
-          <div className="topline-content">
-            <div className="topline-left"></div>
-            <div className="topline-right">
-              <span className="topline-email">info@mustang59.ru</span>
-              <span className="topline-hours">Пн-Пт: 9:00-18:00, Сб: 10:00-16:00</span>
+        {/* Верхняя часть */}
+        <div className="header-top-section">
+          {/* Верхняя линия */}
+          <div className="header-topline">
+            <div className="topline-content">
+              <div className="topline-left"></div>
+              <div className="topline-right">
+                <span className="topline-email">info@mustang59.ru</span>
+                <span className="topline-hours">Пн-Пт: 9:00-18:00, Сб: 10:00-16:00</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Основная линия */}
+          <div className="header-mainline">
+            <div className="mainline-content">
+              {/* Левый блок - логотип и название */}
+              <div className="mainline-left">
+                <Link href="/" className="logo-link" onClick={closeMenu}>
+                  <Image 
+                    src="/images/logotip.png" 
+                    alt="Мустанг59" 
+                    width={80} 
+                    height={80} 
+                    className="logo-image"
+                    priority
+                  />
+                </Link>
+                <div className="company-name">
+                  <h1 className="company-title">Мустанг59</h1>
+                  <p className="company-slogan">Профессиональный поставщик услуг транспортировки</p>
+                </div>
+              </div>
+
+              {/* Правый блок - контакты */}
+              <div className="mainline-right">
+                <div className="contact-phone">
+                  <span className="phone-number">+7 (123) 456-78-90</span>
+                  <span className="phone-label">Бесплатная консультация</span>
+                </div>
+                <div className="contact-form">
+                  <input 
+                    type="tel" 
+                    placeholder="Введите ваш телефон" 
+                    className="phone-input"
+                  />
+                  <button className="call-button">Позвонить мне</button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
 
-        {/* Основная линия */}
-        <div className="header-mainline">
-          <div className="mainline-content">
-            {/* Левый блок - логотип и название */}
-            <div className="mainline-left">
-              <Link href="/" className="logo-link">
-                <Image 
-                  src="/images/logotip.png" 
-                  alt="Мустанг59" 
-                  width={120} 
-                  height={120} 
-                  className="logo-image"
-                  priority
-                />
-              </Link>
-              <div className="company-name">
-                <h1 className="company-title">Мустанг59</h1>
-                <p className="company-slogan">Профессиональный поставщик услуг транспортировки</p>
-              </div>
+        {/* Меню - теперь часть основного хедера */}
+        <nav className="main-menu">
+          <div className="menu-container">
+            {/* Десктопное меню - скрывается на мобилках */}
+            <div className="menu-content">
+              {menuItems.map((item) => (
+                <Link key={item.href} href={item.href} className="menu-link">
+                  {item.label}
+                </Link>
+              ))}
             </div>
 
-            {/* Правый блок - контакты */}
-            <div className="mainline-right">
-              <div className="contact-phone">
-                <span className="phone-number">+7 (123) 456-78-90</span>
-                <span className="phone-label">Бесплатная консультация</span>
-              </div>
-              <div className="contact-form">
-                <input 
-                  type="tel" 
-                  placeholder="Введите ваш телефон" 
-                  className="phone-input"
-                />
-                <button className="call-button">Позвонить мне</button>
-              </div>
-            </div>
+            {/* Бургер меню для мобильных - показывается только на мобилках */}
+            <button 
+              className="burger-menu"
+              onClick={toggleMenu}
+              data-open={isMenuOpen}
+              aria-label="Открыть меню"
+            >
+              <span className="burger-line"></span>
+              <span className="burger-line"></span>
+              <span className="burger-line"></span>
+            </button>
           </div>
-        </div>
+        </nav>
       </div>
 
-      {/* Меню - отдельный блок, не часть sticky хедера */}
-      <nav className="main-menu">
-        <div className="menu-container">
-          <div className="menu-content">
-            <Link href="/services" className="menu-link">О компании</Link>
-            <Link href="/catalog" className="menu-link">Каталог запчастей</Link>
-            <Link href="/about" className="menu-link">О компании</Link>
-            <Link href="/reviews" className="menu-link">Отзывы</Link>
-            <Link href="/contacts" className="menu-link">Контакты</Link>
-            <Link href="/promotions" className="menu-link">Акции</Link>
-          </div>
-        </div>
-      </nav>
-
-      {/* Оверлей для мобильного меню */}
+      {/* Мобильное меню */}
       <div 
         className="mobile-menu-overlay" 
         data-open={isMenuOpen}
         onClick={closeMenu}
       />
+      
+      <nav 
+        ref={mobileMenuRef}
+        className="mobile-menu"
+        data-open={isMenuOpen}
+      >
+        <div className="mobile-menu-header">
+          <div className="mobile-menu-title">Меню</div>
+          <button 
+            className="mobile-menu-close"
+            onClick={closeMenu}
+            aria-label="Закрыть меню"
+          >
+            ×
+          </button>
+        </div>
+        <div className="mobile-menu-content">
+          {menuItems.map((item) => (
+            <Link 
+              key={item.href} 
+              href={item.href} 
+              className="mobile-menu-link"
+              onClick={closeMenu}
+            >
+              {item.label}
+            </Link>
+          ))}
+        </div>
+      </nav>
     </>
   );
 }

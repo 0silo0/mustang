@@ -1,0 +1,235 @@
+/* Секция рабочего процесса с параллакс эффектом */
+.work-process-section {
+  position: relative;
+  min-height: 100vh;
+  padding: 80px 0;
+  overflow: hidden;
+}
+
+/* Фон с фиксированной позицией для параллакса */
+.work-process-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url('/images/work-process/bg.jpg') center/cover no-repeat;
+  z-index: -1;
+}
+
+/* Контейнер */
+.work-process-container {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Заголовок и описание */
+.work-process-header {
+  text-align: left;
+  margin-bottom: 60px;
+  color: var(--white);
+}
+
+.work-process-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: var(--white);
+  line-height: 1.2;
+}
+
+.work-process-description {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin: 0;
+  opacity: 0.9;
+  width: 100%;
+}
+
+/* Сетка галереи */
+.work-process-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 200px;
+  gap: 20px;
+  margin-bottom: 50px;
+}
+
+/* Базовые стили фотографий */
+.work-process-photo {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+  transition: all 0.4s ease;
+  cursor: pointer;
+}
+
+.work-process-photo:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+  z-index: 2;
+}
+
+/* Размеры фотографий */
+.work-process-small {
+  grid-column: span 1;
+  grid-row: span 1;
+}
+
+.work-process-tall {
+  grid-column: span 1;
+  grid-row: span 2;
+}
+
+/* Изображение */
+.photo-image {
+  transition: transform 0.4s ease;
+}
+
+.work-process-photo:hover .photo-image {
+  transform: scale(1.1);
+}
+
+/* Оверлей с текстом */
+.photo-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(0, 0, 0, 0.1) 30%,
+    rgba(0, 0, 0, 0.7) 100%
+  );
+  display: flex;
+  align-items: flex-end;
+  padding: 20px;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.work-process-photo:hover .photo-overlay {
+  opacity: 1;
+}
+
+.photo-title {
+  color: var(--white);
+  font-size: 1rem;
+  font-weight: 600;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+/* Футер с кнопкой */
+.work-process-footer {
+  text-align: center;
+}
+
+.view-all-button {
+  background: var(--primary);
+  color: var(--black);
+  border: none;
+  padding: 15px 40px;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+}
+
+.view-all-button:hover {
+  background: none;
+  transform: translateY(-3px);
+  border: 1px solid var(--primary);
+  color: white;
+  box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
+}
+
+/* Адаптивность */
+@media (max-width: 1024px) {
+  .work-process-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .work-process-title {
+    font-size: 2.2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .work-process-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 180px;
+  }
+  
+  .work-process-section {
+    min-height: auto;
+    padding: 60px 0;
+  }
+  
+  .work-process-title {
+    font-size: 2rem;
+  }
+  
+  .work-process-description {
+    font-size: 1rem;
+  }
+  
+  .work-process-header {
+    margin-bottom: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .work-process-grid {
+    grid-template-columns: 1fr;
+    grid-auto-rows: 200px;
+    gap: 15px;
+  }
+  
+  .work-process-tall {
+    grid-row: span 1;
+    height: 250px;
+  }
+  
+  .work-process-section {
+    padding: 40px 0;
+  }
+  
+  .work-process-title {
+    font-size: 1.8rem;
+  }
+  
+  .view-all-button {
+    padding: 12px 30px;
+    font-size: 1rem;
+  }
+  
+  .photo-overlay {
+    padding: 15px;
+    opacity: 1;
+  }
+  
+  .photo-title {
+    font-size: 0.9rem;
+  }
+}
+
+/* Для очень маленьких экранов */
+@media (max-width: 360px) {
+  .work-process-grid {
+    grid-auto-rows: 180px;
+  }
+  
+  .work-process-tall {
+    height: 220px;
+  }
+}
