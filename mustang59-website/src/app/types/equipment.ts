@@ -7,6 +7,7 @@ export interface PricingItem {
   capacity?: string;
   boomLength?: string;
   characteristics?: string[];
+  deliveryCost?: string;
 }
 
 export interface EquipmentDetails {
@@ -22,4 +23,7 @@ export interface EquipmentDetails {
   };
   pricing: PricingItem[];
   features: string[];
+  deliveryInfo?: string;
+  attachmentsInfo?: string;
+  customPricingNote?: string;
 }

@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import servicesData from '@/data/services.json';
+import Link from 'next/link';
 
 export default function Services() {
   const [activeService, setActiveService] = useState<number | null>(null);
@@ -19,13 +20,15 @@ export default function Services() {
         {/* Сетка услуг */}
         <div className="services-grid">
           {servicesData.services.map((service) => (
-            <div
+            <Link
               key={service.id}
+              href={`/services/${service.anchor}`}
               className={`service-card service-${service.size} ${
                 activeService === service.id ? 'service-active' : ''
               }`}
               onMouseEnter={() => setActiveService(service.id)}
               onMouseLeave={() => setActiveService(null)}
+              style={{ textDecoration: 'none' }}
             >
               <div className="service-image">
                 <Image
@@ -40,7 +43,7 @@ export default function Services() {
               <div className="service-content">
                 <h3 className="service-title">{service.title}</h3>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>

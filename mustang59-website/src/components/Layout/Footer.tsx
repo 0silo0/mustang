@@ -32,27 +32,23 @@ export default function Footer() {
           <div className="footer-section">
             <h3>Аренда спецтехники</h3>
             <ul className="footer-links multi-column">
-              <li><a href="/aerial-platform">Автовышка</a></li>
-              <li><a href="/crane">Автокран</a></li>
-              <li><a href="/manipulator">Манипулятор</a></li>
-              <li><a href="/mini-loader">Мини-погрузчик</a></li>
-              <li><a href="/front-loader">Фронтальный погрузчик</a></li>
-              <li><a href="/forklift">Вилочный погрузчик</a></li>
-              <li><a href="/mini-excavator">Мини-экскаватор</a></li>
-              <li><a href="/backhoe-loader">Экскаватор-погрузчик</a></li>
-              <li><a href="/wheel-excavator">Колесный экскаватор</a></li>
-              <li><a href="/crawler-excavator">Гусеничный экскаватор</a></li>
-              <li><a href="/hydraulic-hammer">Гидромолот</a></li>
-              <li><a href="/dump-truck">Самосвал</a></li>
-              <li><a href="/bulldozer">Бульдозер</a></li>
-              <li><a href="/grader">Грейдер</a></li>
-              <li><a href="/roller">Грунтовый каток</a></li>
-              <li><a href="/flatbed">Бортовой автомобиль</a></li>
-              <li><a href="/trailer">Трал</a></li>
-              <li><a href="/van">Фургон</a></li>
-              <li><a href="/auger">Ямобур</a></li>
-              <li><a href="/concrete-mixer">Миксер/швинг</a></li>
-              <li><a href="/compressor">Компрессор</a></li>
+              <li><a href="/catalog/avtovyshka">Автовышка</a></li>
+              <li><a href="/catalog/avtokran">Автокран</a></li>
+              <li><a href="/catalog/manipulyator">Манипулятор</a></li>
+              <li><a href="/catalog/mini-pogruzchik">Мини-погрузчик</a></li>
+              <li><a href="/catalog/frontalny-pogruzchik">Фронтальный погрузчик</a></li>
+              <li><a href="/catalog/mini-excavator">Мини-экскаватор</a></li>
+              <li><a href="/catalog/excavator-pogruzchik">Экскаватор-погрузчик</a></li>
+              <li><a href="/catalog/kolesny-excavator">Колесный экскаватор</a></li>
+              <li><a href="/catalog/gusenichny-excavator">Гусеничный экскаватор</a></li>
+              <li><a href="/catalog/gidromolot">Гидромолот</a></li>
+              <li><a href="/catalog/samosval">Самосвал</a></li>
+              <li><a href="/catalog/buldozer">Бульдозер</a></li>
+              <li><a href="/catalog/greyder">Грейдер</a></li>
+              <li><a href="/catalog/katok">Грунтовый каток</a></li>
+              <li><a href="/catalog/bortovoy">Бортовой автомобиль</a></li>
+              <li><a href="/catalog/tral">Трал</a></li>
+              <li><a href="/catalog/yamobur">Ямобур</a></li>
             </ul>
           </div>
 
@@ -60,16 +56,15 @@ export default function Footer() {
           <div className="footer-section">
             <h3>Услуги</h3>
             <ul className="footer-links">
-              <li><a href="/earthworks">Земляные работы</a></li>
-              <li><a href="/road-improvement">Благоустройство дорог и прилегающих территорий</a></li>
-              <li><a href="/demolition">Демонтаж и снос зданий, сооружений</a></li>
-              <li><a href="/heavy-transport">Перевозка тяжеловесных и негабаритных грузов</a></li>
-              <li><a href="/stump-removal">Корчевание пней, спил веток/деревьев</a></li>
-              <li><a href="/drilling">Бурение отверстий, установка/выемка столбов, винтовые сваи</a></li>
-              <li><a href="/cleaning">Уборка и вывоз мусора/снега</a></li>
-              <li><a href="/material-delivery">Доставка гравия, щебня, песка и других сыпучих материалов</a></li>
-              <li><a href="/labor">Услуги грузчиков/разнорабочих</a></li>
-              <li><a href="/cargo-transportation">Грузоперевозки</a></li>
+              <li><a href="/services/earthworks">Земляные работы</a></li>
+              <li><a href="/services/road-improvement">Благоустройство дорог и прилегающих территорий</a></li>
+              <li><a href="/services/demolition">Демонтаж и снос зданий, сооружений</a></li>
+              <li><a href="/services/transportation">Перевозка тяжеловесных и негабаритных грузов</a></li>
+              <li><a href="/services/tree-removal">Корчевание пней, спил веток/деревьев</a></li>
+              <li><a href="/services/drilling">Бурение отверстий, установка/выемка столбов, винтовые сваи</a></li>
+              <li><a href="/services/cleaning">Уборка и вывоз мусора/снега</a></li>
+              <li><a href="/services/delivery">Доставка гравия, щебня, песка и других сыпучих материалов</a></li>
+              <li><a href="/services/cargo">Грузоперевозки</a></li>
             </ul>
           </div>
         </div>

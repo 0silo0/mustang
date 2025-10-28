@@ -1,9 +1,9 @@
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
+import servicesData from '@/data/services-data.json';
 import equipmentDetails from '@/data/equipment-details.json';
-import basicEquipment from '@/data/special-equipment.json';
-import { PricingItem, EquipmentDetails } from '../../types/equipment';
+import { PricingItem } from '../../types/equipment';
 import UrgentOrder from '@/components/Home/UrgentOrder';
 
 interface Props {
@@ -12,25 +12,29 @@ interface Props {
   }>;
 }
 
-// Создаем тип для оборудования из JSON
-type EquipmentFromJSON = EquipmentDetails & {
+// Создаем тип для услуги из JSON
+type ServiceFromJSON = {
+  id: number;
   anchor: string;
-  // Добавляем другие поля, которые есть в JSON но нет в EquipmentDetails
+  name: string;
+  shortDescription: string;
+  fullDescription: string;
+  images: string[];
+  relatedEquipment: string[];
+  features: string[];
+  pricing?: PricingItem[];
+  deliveryInfo?: string;
+  customPricingNote?: string;
 };
 
-function formatEquipmentName(name: string): string {
-  return name.toLowerCase()
-    .replace('аренда ', 'аренды ');
-}
-
-export default async function EquipmentDetailPage({ params }: Props) {
+export default async function ServiceDetailPage({ params }: Props) {
   const { anchor } = await params;
   
-  // Явно указываем тип для equipment
-  const equipment = (equipmentDetails as unknown as { equipment: EquipmentFromJSON[] })
-    .equipment.find(item => item.anchor === anchor) as EquipmentFromJSON | undefined;
+  // Явно указываем тип для service
+  const service = (servicesData as unknown as { services: ServiceFromJSON[] })
+    .services.find(item => item.anchor === anchor) as ServiceFromJSON | undefined;
   
-  if (!equipment) {
+  if (!service) {
     notFound();
   }
 
@@ -69,11 +73,6 @@ export default async function EquipmentDetailPage({ params }: Props) {
     
     return "-";
   };
-
-  // Проверяем есть ли deliveryCost в pricing
-  const hasDeliveryCost = equipment.pricing?.some(item => 
-    'deliveryCost' in item && item.deliveryCost !== undefined
-  );
 
   const renderDescription = (text: string) => {
     const lines = text.split('\n');
@@ -148,37 +147,42 @@ export default async function EquipmentDetailPage({ params }: Props) {
     return elements;
   };
 
+  // Получаем связанную технику
+  const relatedEquipment = equipmentDetails.equipment.filter(item => 
+    service.relatedEquipment.includes(item.anchor)
+  );
+
   return (
-    <main className="equipment-detail-page">
+    <main className="service-detail-page">
       <div className="container">
         {/* Хлебные крошки */}
         <nav className="breadcrumbs">
           <Link href="/" className="breadcrumb-link">Главная</Link>
           <span className="breadcrumb-separator">»</span>
-          <Link href="/catalog" className="breadcrumb-link">Каталог спецтехники</Link>
+          <Link href="/services" className="breadcrumb-link">Услуги</Link>
           <span className="breadcrumb-separator">»</span>
-          <span className="breadcrumb-current">{equipment.name}</span>
+          <span className="breadcrumb-current">{service.name}</span>
         </nav>
 
         {/* Заголовок */}
-        <h1 className="page-title">{equipment.name}</h1>
+        <h1 className="page-title">{service.name}</h1>
 
         {/* Краткое описание */}
-        <div className="equipment-short-description">
-          <p>{equipment.shortDescription}</p>
+        <div className="service-short-description">
+          <p>{service.shortDescription}</p>
         </div>
 
         {/* Галерея изображений */}
-        {equipment.images && equipment.images.length > 0 && (
-          <section className="equipment-gallery">
+        {service.images && service.images.length > 0 && (
+          <section className="service-gallery">
             <div className="gallery-grid">
-              {equipment.images.map((image, index) => (
+              {service.images.map((image, index) => (
                 <div key={index} className="gallery-item">
                   <Image
                     src={image}
-                    alt={`${equipment.name} - фото ${index + 1}`}
+                    alt={`${service.name} - фото ${index + 1}`}
                     width={400}
-                    height={500}
+                    height={300}
                     className="gallery-image"
                   />
                 </div>
@@ -188,64 +192,41 @@ export default async function EquipmentDetailPage({ params }: Props) {
         )}
 
         {/* Полное описание */}
-        <section className="equipment-full-description">
-          <h2>Услуги {formatEquipmentName(equipment.name)}</h2>
+        <section className="service-full-description">
+          <h2>О услуге</h2>
           <div className="description-content">
-            {renderDescription(equipment.fullDescription)}
+            {renderDescription(service.fullDescription)}
           </div>
         </section>
 
-        {/* Характеристики */}
-        {equipment.specifications && Object.keys(equipment.specifications).length > 0 && (
-          <section className="equipment-specifications">
-            <h2>Технические характеристики</h2>
-            <div className="specs-grid">
-              {Object.entries(equipment.specifications).map(([key, value]) => (
-                <div key={key} className="spec-item">
-                  <span className="spec-name">{formatSpecName(key)}</span>
-                  <span className="spec-value">{value}</span>
-                </div>
-              ))}
-            </div>
-          </section>
-        )}
-
-        {equipment.customPricingNote && (
-          <section className="equipment-custom-pricing">
-            <h2>Стоимость аренды</h2>
+        {service.customPricingNote && (
+          <section className="service-custom-pricing">
+            <h2>Стоимость услуг</h2>
             <div className="custom-pricing-content">
-              {renderDescription(equipment.customPricingNote)}
+              {renderDescription(service.customPricingNote)}
             </div>
           </section>
         )}
 
         {/* Таблица цен */}
-        {equipment.pricing && equipment.pricing.length > 0 && (
-          <section className="equipment-pricing">
-            <h2>Стоимость аренды</h2>
+        {service.pricing && service.pricing.length > 0 && (
+          <section className="service-pricing">
+            <h2>Стоимость услуг</h2>
             <div className="pricing-table-container">
               <table className="pricing-table">
                 <thead>
                   <tr>
-                    <th>Модель</th>
-                    <th>Характеристики</th>
-                    <th>Стоимость, руб./час</th>
+                    <th>Наименование услуг</th>
+                    <th>Стоимость</th>
                     <th>Минимальный заказ</th>
-                    {hasDeliveryCost && (
-                      <th>Доставка по городу, руб./рейс</th>
-                    )}
                   </tr>
                 </thead>
                 <tbody>
-                  {equipment.pricing.map((price, index) => (
+                  {service.pricing.map((price, index) => (
                     <tr key={index}>
                       <td>{price.model}</td>
-                      <td>{getPriceDetails(price)}</td>
                       <td>{price.pricePerHour}</td>
                       <td>{price.minOrder}</td>
-                      {hasDeliveryCost && (
-                        <td>{(price as PricingItem).deliveryCost || "-"}</td>
-                      )}
                     </tr>
                   ))}
                 </tbody>
@@ -254,21 +235,50 @@ export default async function EquipmentDetailPage({ params }: Props) {
           </section>
         )}
 
-        {equipment.deliveryInfo && (
-          <section className="equipment-delivery">
-            <h2>Доставка техники</h2>
+        {service.deliveryInfo && (
+          <section className="service-delivery">
+            <h2>Доставка</h2>
             <div className="delivery-content">
-              {renderDescription(equipment.deliveryInfo)}
+              {renderDescription(service.deliveryInfo)}
             </div>
           </section>
         )}
 
+        {/* Связанная техника */}
+        {/* {relatedEquipment.length > 0 && (
+          <section className="related-equipment">
+            <h2>Техника для выполнения работ</h2>
+            <div className="equipment-grid">
+              {relatedEquipment.map((equipment) => (
+                <Link 
+                  key={equipment.id} 
+                  href={`/catalog/${equipment.anchor}`}
+                  className="equipment-card"
+                >
+                  <div className="equipment-image">
+                    <Image
+                      src={equipment.images[0]}
+                      alt={equipment.name}
+                      width={300}
+                      height={200}
+                    />
+                  </div>
+                  <div className="equipment-info">
+                    <h3>{equipment.name}</h3>
+                    <p>{equipment.shortDescription}</p>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </section>
+        )} */}
+
         {/* Преимущества */}
-        {equipment.features && equipment.features.length > 0 && (
-          <section className="equipment-features">
-            <h2>Преимущества аренды</h2>
+        {service.features && service.features.length > 0 && (
+          <section className="service-features">
+            <h2>Преимущества</h2>
             <div className="features-list">
-              {equipment.features.map((feature, index) => (
+              {service.features.map((feature, index) => (
                 <div key={index} className="feature-item">
                   <span className="feature-icon">✓</span>
                   <span className="feature-title">{feature}</span>
@@ -282,41 +292,4 @@ export default async function EquipmentDetailPage({ params }: Props) {
       </div>
     </main>
   );
-}
-
-// Вспомогательная функция для форматирования названий характеристик
-function formatSpecName(key: string): string {
-  const specNames: { [key: string]: string } = {
-    workingHeight: "Рабочая высота",
-    loadCapacity: "Грузоподъемность", 
-    boomType: "Тип стрелы",
-    control: "Управление",
-    liftingCapacity: "Грузоподъемность",
-    boomLength: "Длина стрелы",
-    type: "Тип",
-    enginePower: "Мощность двигателя",
-    weight: "Вес",
-    dimensions: "Габариты",
-    bucketCapacity: "Объем ковша",
-    maxDiggingDepth: "Максимальная глубина копания",
-    unloadingType: "Тип выгрузки",
-    bodyType: "Тип кузова",
-    bladeType: "Тип отвала",
-    purpose: "Назначение",
-    impactEnergy: "Энергия удара",
-    operatingPressure: "Рабочее давление",
-    compatibility: "Совместимость",
-    bladeLength: "Длина отвала",
-    compactionMethod: "Метод уплотнения",
-    rollerType: "Тип вальца",
-    mobility: "Мобильность",
-    loadingType: "Виды выгрузки",
-    platformType: "Тип платформы",
-    axlesCount: "Кол-во осей",
-    drillingDepth: "Глубина бурения",
-    baseVehicle: "Типы машин",
-    application: "Типы бурения"
-  };
-  
-  return specNames[key] || key;
 }

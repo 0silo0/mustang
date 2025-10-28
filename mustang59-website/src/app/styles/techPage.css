@@ -517,3 +517,86 @@
     font-size: 0.85rem;
   }
 }
+
+
+
+
+/* Секция доставки */
+.equipment-delivery {
+  margin-bottom: 50px;
+  padding: 30px;
+  background: var(--background-light);
+  border-radius: 12px;
+  border-left: 4px solid var(--primary);
+}
+
+.equipment-delivery h2 {
+  font-size: 1.8rem;
+  color: var(--black);
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.delivery-content {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--gray);
+}
+
+.delivery-content p {
+  margin-bottom: 15px;
+}
+
+/* Адаптивность для доставки */
+@media (max-width: 768px) {
+  .equipment-delivery {
+    padding: 20px;
+    margin-bottom: 30px;
+  }
+  
+  .equipment-delivery h2 {
+    font-size: 1.5rem;
+  }
+}
+
+
+
+
+
+/* Секция индивидуального расчета цены */
+.equipment-custom-pricing {
+  margin-bottom: 50px;
+  padding: 30px;
+  background: var(--background-light);
+  border-radius: 12px;
+  border-left: 4px solid var(--primary);
+}
+
+.equipment-custom-pricing h2 {
+  font-size: 1.8rem;
+  color: var(--black);
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.custom-pricing-content {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--gray);
+}
+
+.custom-pricing-content p {
+  margin-bottom: 15px;
+}
+
+/* Адаптивность для кастомной цены */
+@media (max-width: 768px) {
+  .equipment-custom-pricing {
+    padding: 20px;
+    margin-bottom: 30px;
+  }
+  
+  .equipment-custom-pricing h2 {
+    font-size: 1.5rem;
+  }
+}

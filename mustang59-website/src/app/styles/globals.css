@@ -29,6 +29,7 @@
 @import './about.css';
 @import './gallery.css';
 @import './techPage.css';
+@import './servicesPage.css';
 
 /* Общие сбросы и базовые стили */
 * {

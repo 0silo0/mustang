@@ -119,8 +119,8 @@ export default function Header() {
             <div className="topline-content">
               <div className="topline-left"></div>
               <div className="topline-right">
-                <span className="topline-email">info@mustang59.ru</span>
-                <span className="topline-hours">Пн-Пт: 9:00-18:00, Сб: 10:00-16:00</span>
+                <span className="topline-email">Mustang.159@mail.ru</span>
+                <span className="topline-hours">Пн-Вс: 8:00-23:00</span>
               </div>
             </div>
           </div>
@@ -224,7 +224,7 @@ export default function Header() {
                             {servicesData.services.map((service) => (
                               <Link
                                 key={service.id}
-                                href={`/services#${service.anchor}`}
+                                href={`/services/${service.anchor}`}
                                 className="dropdown-link"
                                 onClick={() => {
                                   closeMenu();
