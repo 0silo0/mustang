@@ -7,13 +7,14 @@ import { PricingItem } from '../../types/equipment';
 import UrgentOrder from '@/components/Home/UrgentOrder';
 
 interface Props {
-  params: {
+  params: Promise<{
     anchor: string;
-  };
+  }>;
 }
 
-export default function EquipmentDetailPage({ params }: Props) {
-  const equipment = equipmentDetails.equipment.find(item => item.anchor === params.anchor);
+export default async function EquipmentDetailPage({ params }: Props) {
+  const { anchor } = await params;
+  const equipment = equipmentDetails.equipment.find(item => item.anchor === anchor);
   
   if (!equipment) {
     notFound();
