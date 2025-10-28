@@ -533,7 +533,7 @@
   border: 3px solid var(--primary);
   border-radius: 8px;
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
-  min-width: 800px; /* Увеличиваем ширину для трех колонок */
+  min-width: 600px;
   width: auto;
   z-index: 1002;
   animation: dropdownFadeIn 0.3s ease;
@@ -592,15 +592,16 @@
 .dropdown-text {
   font-size: 0.95rem;
   font-weight: 500;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  white-space: normal; /* РАЗРЕШИЛИ перенос текста */
+  overflow: visible; /* УБРАЛИ обрезку */
+  text-overflow: unset; /* УБРАЛИ многоточие */
+  line-height: 1.4; /* ДОБАВИЛИ межстрочный интервал */
+  word-wrap: break-word; /* ПЕРЕНАСЫ слов */
 }
-
 /* Адаптивность для выпадающего меню */
 @media (max-width: 1024px) {
   .dropdown-menu {
-    min-width: 700px; /* Немного уменьшаем на планшетах */
+    min-width: 500px; /* Немного уменьшаем на планшетах */
   }
   
   .dropdown-content {

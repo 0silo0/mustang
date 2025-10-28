@@ -4,14 +4,17 @@ import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import equipmentData from '@/data/special-equipment.json';
+import servicesData from '@/data/services.json';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSticky, setIsSticky] = useState(false);
   const [isCatalogDropdownOpen, setIsCatalogDropdownOpen] = useState(false);
+  const [isServicesDropdownOpen, setIsServicesDropdownOpen] = useState(false);
   const headerRef = useRef<HTMLDivElement>(null);
   const mobileMenuRef = useRef<HTMLDivElement>(null);
   const catalogDropdownRef = useRef<HTMLDivElement>(null);
+  const servicesDropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (isMenuOpen) {
@@ -53,16 +56,20 @@ export default function Header() {
       if (mobileMenuRef.current && !mobileMenuRef.current.contains(event.target as Node)) {
         setIsMenuOpen(false);
       }
+      if (catalogDropdownRef.current && !catalogDropdownRef.current.contains(event.target as Node)) {
+        setIsCatalogDropdownOpen(false);
+      }
+      if (servicesDropdownRef.current && !servicesDropdownRef.current.contains(event.target as Node)) {
+        setIsServicesDropdownOpen(false);
+      }
     };
 
-    if (isMenuOpen) {
-      document.addEventListener('mousedown', handleClickOutside);
-    }
+    document.addEventListener('mousedown', handleClickOutside);
 
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
-  }, [isMenuOpen]);
+  }, []);
 
   // Блокировка скролла на touch устройствах
   useEffect(() => {
@@ -80,13 +87,19 @@ export default function Header() {
   }, [isMenuOpen]);
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
-  const closeMenu = () => setIsMenuOpen(false);
+  const closeMenu = () => {
+    setIsMenuOpen(false);
+    setIsCatalogDropdownOpen(false);
+    setIsServicesDropdownOpen(false);
+  };
+  
   const toggleCatalogDropdown = () => setIsCatalogDropdownOpen(!isCatalogDropdownOpen);
+  const toggleServicesDropdown = () => setIsServicesDropdownOpen(!isServicesDropdownOpen);
 
   const menuItems = [
     { href: "/about", label: "О компании" },
-    { href: "/catalog", label: "Каталог спецтехники", hasDropdown: true },
-    { href: "/about", label: "Услуги" },
+    { href: "/catalog", label: "Каталог спецтехники", hasDropdown: true, type: 'catalog' },
+    { href: "/services", label: "Услуги", hasDropdown: true, type: 'services' },
     { href: "/reviews", label: "Отзывы" },
     { href: "/contacts", label: "Контакты" },
     { href: "/gallery", label: "Фотогалерея" }
@@ -157,45 +170,83 @@ export default function Header() {
           <div className="menu-container">
             {/* Десктопное меню - скрывается на мобилках */}
             <div className="menu-content">
-              {menuItems.map((item) => (
-                item.hasDropdown ? (
-                  <div 
-                    key={item.href}
-                    ref={catalogDropdownRef}
-                    className="menu-item-with-dropdown"
-                    onMouseEnter={() => setIsCatalogDropdownOpen(true)}
-                    onMouseLeave={() => setIsCatalogDropdownOpen(false)}
-                  >
-                    <Link href={item.href} className="menu-link dropdown-trigger">
-                      {item.label}
-                      <span className="dropdown-arrow">▼</span>
-                    </Link>
-                    {isCatalogDropdownOpen && (
-                      <div className="dropdown-menu">
-                        <div className="dropdown-content">
-                          {equipmentData.equipment.map((equip) => (
-                            <Link
-                              key={equip.id}
-                              href={`/catalog/${equip.anchor}`}
-                              className="dropdown-link"
-                              onClick={() => {
-                                closeMenu();
-                                setIsCatalogDropdownOpen(false);
-                              }}
-                            >
-                              <span className="dropdown-text">{equip.shortName}</span>
-                            </Link>
-                          ))}
+              {menuItems.map((item) => {
+                if (item.hasDropdown && item.type === 'catalog') {
+                  return (
+                    <div 
+                      key={item.href}
+                      ref={catalogDropdownRef}
+                      className="menu-item-with-dropdown"
+                      onMouseEnter={() => setIsCatalogDropdownOpen(true)}
+                      onMouseLeave={() => setIsCatalogDropdownOpen(false)}
+                    >
+                      <Link href={item.href} className="menu-link dropdown-trigger">
+                        {item.label}
+                        <span className="dropdown-arrow">▼</span>
+                      </Link>
+                      {isCatalogDropdownOpen && (
+                        <div className="dropdown-menu">
+                          <div className="dropdown-content">
+                            {equipmentData.equipment.map((equip) => (
+                              <Link
+                                key={equip.id}
+                                href={`/catalog/${equip.anchor}`}
+                                className="dropdown-link"
+                                onClick={() => {
+                                  closeMenu();
+                                  setIsCatalogDropdownOpen(false);
+                                }}
+                              >
+                                <span className="dropdown-text">{equip.shortName}</span>
+                              </Link>
+                            ))}
+                          </div>
                         </div>
-                      </div>
-                    )}
-                  </div>
-                ) : (
-                  <Link key={item.href} href={item.href} className="menu-link">
-                    {item.label}
-                  </Link>
-                )
-              ))}
+                      )}
+                    </div>
+                  );
+                } else if (item.hasDropdown && item.type === 'services') {
+                  return (
+                    <div 
+                      key={item.href}
+                      ref={servicesDropdownRef}
+                      className="menu-item-with-dropdown"
+                      onMouseEnter={() => setIsServicesDropdownOpen(true)}
+                      onMouseLeave={() => setIsServicesDropdownOpen(false)}
+                    >
+                      <Link href={item.href} className="menu-link dropdown-trigger">
+                        {item.label}
+                        <span className="dropdown-arrow">▼</span>
+                      </Link>
+                      {isServicesDropdownOpen && (
+                        <div className="dropdown-menu">
+                          <div className="dropdown-content">
+                            {servicesData.services.map((service) => (
+                              <Link
+                                key={service.id}
+                                href={`/services#${service.anchor}`}
+                                className="dropdown-link"
+                                onClick={() => {
+                                  closeMenu();
+                                  setIsServicesDropdownOpen(false);
+                                }}
+                              >
+                                <span className="dropdown-text">{service.title}</span>
+                              </Link>
+                            ))}
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  );
+                } else {
+                  return (
+                    <Link key={item.href} href={item.href} className="menu-link">
+                      {item.label}
+                    </Link>
+                  );
+                }
+              })}
             </div>
 
             {/* Бургер меню для мобильных - показывается только на мобилках */}

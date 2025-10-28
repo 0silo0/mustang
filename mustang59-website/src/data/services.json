@@ -4,54 +4,63 @@
   "services": [
     {
       "id": 1,
+      "anchor": "earthworks",
       "title": "Земляные работы",
       "image": "/images/services/earthworks.jpg",
       "size": "small"
     },
     {
       "id": 2,
+      "anchor": "road-improvement",
       "title": "Благоустройство дорог и прилегающих территорий",
       "image": "/images/services/road-improvement.jpg",
       "size": "small"
     },
     {
       "id": 3,
+      "anchor": "demolition",
       "title": "Демонтаж и снос зданий, сооружений",
       "image": "/images/services/demolition.jpg",
       "size": "medium"
     },
     {
       "id": 4,
+      "anchor": "transportation",
       "title": "Перевозка тяжеловесных и негабаритных грузов",
       "image": "/images/services/transportation.jpg",
       "size": "medium"
     },
     {
       "id": 5,
+      "anchor": "tree-removal",
       "title": "Корчевание пней, спил веток/деревьев",
       "image": "/images/services/tree-removal.jpg",
       "size": "small"
     },
     {
       "id": 6,
+      "anchor": "drilling",
       "title": "Бурение отверстий, установка/выемка столбов, винтовые сваи",
       "image": "/images/services/drilling.jpg",
       "size": "tall"
     },
     {
       "id": 7,
+      "anchor": "cleaning",
       "title": "Уборка и вывоз мусора/снега",
       "image": "/images/services/cleaning.jpg",
       "size": "small"
     },
     {
       "id": 8,
+      "anchor": "delivery",
       "title": "Доставка гравия, щебня, песка и других сыпучих материалов",
       "image": "/images/services/delivery.webp",
       "size": "medium"
     },
     {
       "id": 9,
+      "anchor": "cargo",
       "title": "Грузоперевозки",
       "image": "/images/services/cargo.webp",
       "size": "medium"
