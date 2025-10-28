@@ -6,6 +6,7 @@ export interface PricingItem {
   height?: string;
   capacity?: string;
   boomLength?: string;
+  characteristics?: string[];
 }
 
 export interface EquipmentDetails {

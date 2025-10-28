@@ -12,6 +12,11 @@ interface Props {
   }>;
 }
 
+function formatEquipmentName(name: string): string {
+  return name.toLowerCase()
+    .replace('аренда ', 'аренды ');
+}
+
 export default async function EquipmentDetailPage({ params }: Props) {
   const { anchor } = await params;
   const equipment = equipmentDetails.equipment.find(item => item.anchor === anchor);
@@ -22,11 +27,111 @@ export default async function EquipmentDetailPage({ params }: Props) {
 
   // Функция для получения характеристик цены
   const getPriceDetails = (price: PricingItem) => {
+    // Если есть специальные характеристики, используем их
+    if (price.characteristics && price.characteristics.length > 0) {
+      return (
+        <div className="characteristics-block">
+          {price.characteristics.map((char, index) => (
+            <div key={index} className="characteristic-line">
+              {char}
+            </div>
+          ))}
+        </div>
+      );
+    }
+
+    // Стандартная обработка для других моделей
     const details = [];
     if (price.height) details.push(`Высота: ${price.height}`);
     if (price.capacity) details.push(`Грузоподъемность: ${price.capacity}`);
     if (price.boomLength) details.push(`Длина стрелы: ${price.boomLength}`);
-    return details.join(', ');
+    
+    if (details.length > 0) {
+      return (
+        <div className="characteristics-block">
+          {details.map((detail, index) => (
+            <div key={index} className="characteristic-line">
+              {detail}
+            </div>
+          ))}
+        </div>
+      );
+    }
+    
+    return "-";
+  };
+
+  const renderDescription = (text: string) => {
+    const lines = text.split('\n');
+    const elements: JSX.Element[] = [];
+    let currentList: string[] = [];
+    let inNestedList = false;
+
+    const pushCurrentList = () => {
+      if (currentList.length > 0) {
+        const mainItem = currentList[0];
+        const nestedItems = currentList.slice(1);
+        
+        elements.push(
+          <div key={elements.length} className="description-list-item">
+            {mainItem}
+            {nestedItems.length > 0 && (
+              <div className="nested-list">
+                {nestedItems.map((item, index) => (
+                  <div key={index} className="nested-item">
+                    {item}
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+        );
+        currentList = [];
+      }
+    };
+
+    lines.forEach((line, index) => {
+      const trimmedLine = line.trim();
+      
+      if (!trimmedLine) {
+        pushCurrentList();
+        inNestedList = false;
+        elements.push(<br key={elements.length} />);
+        return;
+      }
+      
+      // Обработка основных пунктов списка
+      if (trimmedLine.startsWith('•')) {
+        pushCurrentList();
+        inNestedList = false;
+        const content = trimmedLine.replace(/^•\s*/, '');
+        currentList.push(content);
+        return;
+      }
+      
+      // Обработка подпунктов (начинаются с дефиса)
+      if (trimmedLine.startsWith('-')) {
+        inNestedList = true;
+        const content = trimmedLine.replace(/^-\s*/, '');
+        if (currentList.length > 0) {
+          currentList.push(content);
+        } else {
+          // Если нет основного пункта, создаем его
+          currentList.push(content);
+        }
+        return;
+      }
+      
+      // Обычный параграф
+      pushCurrentList();
+      inNestedList = false;
+      elements.push(<p key={elements.length}>{trimmedLine}</p>);
+    });
+
+    // Не забываем добавить последний список
+    pushCurrentList();
+
+    return elements;
   };
 
   return (
@@ -70,21 +175,9 @@ export default async function EquipmentDetailPage({ params }: Props) {
 
         {/* Полное описание */}
         <section className="equipment-full-description">
-          <h2>Услуги {equipment.name.toLowerCase()}</h2>
+          <h2>Услуги {formatEquipmentName(equipment.name)}</h2>
           <div className="description-content">
-            {equipment.fullDescription.split('\n').map((paragraph, index) => (
-              paragraph.trim() ? (
-                paragraph.startsWith('•') ? (
-                  <div key={index} className="description-list-item">
-                    {paragraph}
-                  </div>
-                ) : (
-                  <p key={index}>{paragraph}</p>
-                )
-              ) : (
-                <br key={index} />
-              )
-            ))}
+            {renderDescription(equipment.fullDescription)}
           </div>
         </section>
 
@@ -128,6 +221,15 @@ export default async function EquipmentDetailPage({ params }: Props) {
                   ))}
                 </tbody>
               </table>
+            </div>
+          </section>
+        )}
+
+        {equipment.deliveryInfo && (
+          <section className="equipment-delivery">
+            <h2>Доставка техники</h2>
+            <div className="delivery-content">
+              {renderDescription(equipment.deliveryInfo)}
             </div>
           </section>
         )}
