@@ -1,11 +1,14 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [headerTransform, setHeaderTransform] = useState(0);
+  const lastScrollY = useRef(0);
+  const headerTopRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (isMenuOpen) {
@@ -37,11 +40,50 @@ export default function Header() {
     };
   }, [isMenuOpen]);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      const headerHeight = headerTopRef.current?.offsetHeight || 0;
+      
+      // Плавное скрытие верхней части при скролле
+      const progress = Math.min(currentScrollY / headerHeight, 1);
+      const transform = -progress * headerHeight;
+      
+      setHeaderTransform(transform);
+      lastScrollY.current = currentScrollY;
+    };
+
+    let ticking = false;
+    const onScroll = () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          handleScroll();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+    };
+  }, []);
+
   const closeMenu = () => setIsMenuOpen(false);
 
   return (
-    <header className="header">
-      <div className="header-container">
+    <>
+      {/* Верхняя часть которая плавно скрывается при скролле */}
+      <div 
+        ref={headerTopRef}
+        className="header-top-section"
+        style={{ 
+          transform: `translateY(${headerTransform}px)`,
+          transition: 'transform 0.1s ease-out'
+        }}
+      >
         {/* Верхняя линия */}
         <div className="header-topline">
           <div className="topline-content">
@@ -93,7 +135,7 @@ export default function Header() {
         </div>
       </div>
 
-      {/* Меню */}
+      {/* Меню - отдельный блок, не часть sticky хедера */}
       <nav className="main-menu">
         <div className="menu-container">
           <div className="menu-content">
@@ -113,6 +155,6 @@ export default function Header() {
         data-open={isMenuOpen}
         onClick={closeMenu}
       />
-    </header>
+    </>
   );
 }
