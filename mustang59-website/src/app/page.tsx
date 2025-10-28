@@ -11,8 +11,13 @@ import WorkProcess from '@/components/Home/WorkProcess';
 export default function HomePage() {
   return (
     <main>
-      <h1>Тест</h1>
-      <p>Если это работает, проблема в компонентах</p>
+      <SwiperSection />
+      <WhyProfitable />
+      <SpecialEquipmentCatalog />
+      <UrgentOrder />
+      <Services />
+      <Advantages />
+      <WorkProcess />
     </main>
   );
 }

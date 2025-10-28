@@ -81,11 +81,11 @@ export default function Header() {
 
   const menuItems = [
     { href: "/services", label: "О компании" },
-    { href: "/catalog", label: "Каталог запчастей" },
-    { href: "/about", label: "О компании" },
+    { href: "/catalog", label: "Каталог спецтехники" },
+    { href: "/about", label: "Услуги" },
     { href: "/reviews", label: "Отзывы" },
     { href: "/contacts", label: "Контакты" },
-    { href: "/promotions", label: "Акции" }
+    { href: "/promotions", label: "Фотогалерея" }
   ];
 
   return (
