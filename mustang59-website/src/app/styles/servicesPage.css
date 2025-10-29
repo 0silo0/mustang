@@ -40,7 +40,7 @@
 }
 
 /* Связанная техника */
-.related-equipment {
+/* .related-equipment {
   margin-bottom: 50px;
 }
 
@@ -61,15 +61,15 @@
   width: 80px;
   height: 3px;
   background: var(--primary);
-}
+} */
 
-.equipment-grid {
+/* .equipment-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 20px;
-}
+} */
 
-.equipment-card {
+/* .equipment-card-service {
   display: block;
   background: var(--white);
   border-radius: 12px;
@@ -82,9 +82,9 @@
 
 .equipment-card:hover {
   transform: translateY(-5px);
-}
+} */
 
-.equipment-image {
+/* .equipment-image {
   width: 100%;
   height: 200px;
   overflow: hidden;
@@ -94,9 +94,9 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-}
+} */
 
-.equipment-info {
+/* .equipment-info {
   padding: 20px;
 }
 
@@ -109,7 +109,7 @@
 .equipment-info p {
   color: var(--gray);
   line-height: 1.5;
-}
+} */
 
 /* Преимущества услуги */
 .service-features {
@@ -145,10 +145,10 @@
     font-size: 1.1rem;
     text-align: left;
   }
-
+/* 
   .equipment-grid {
     grid-template-columns: 1fr;
-  }
+  } */
 }
 
 

@@ -30,6 +30,7 @@
 @import './gallery.css';
 @import './techPage.css';
 @import './servicesPage.css';
+@import './orderModal.css';
 
 /* Общие сбросы и базовые стили */
 * {

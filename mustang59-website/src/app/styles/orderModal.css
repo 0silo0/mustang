@@ -1,0 +1,476 @@
+/* OrderModal.css */
+.order-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(10, 10, 10, 0.95);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    padding: 20px;
+    backdrop-filter: blur(5px);
+    overflow: hidden;
+}
+
+.order-modal-content {
+    background: var(--dark-bg);
+    border-radius: 16px;
+    max-width: 900px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    color: var(--foreground);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+    border: 1px solid var(--gray-dark);
+    position: relative;
+}
+
+/* Шапка */
+.order-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 40px;
+    border-bottom: 1px solid var(--gray-dark);
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-hover) 100%);
+    border-radius: 16px 16px 0 0;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.order-modal-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--black);
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.order-modal-close {
+    background: rgba(0, 0, 0, 0.2);
+    border: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: var(--black);
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    font-weight: bold;
+}
+
+.order-modal-close:hover {
+    background: rgba(0, 0, 0, 0.3);
+    transform: rotate(90deg);
+}
+
+/* Форма */
+.order-modal-form {
+    padding: 0;
+}
+
+.order-form-section {
+    padding: 30px 40px;
+    border-bottom: 1px solid var(--gray-dark);
+}
+
+.order-form-section:last-of-type {
+    border-bottom: none;
+}
+
+.order-section-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin: 0 0 10px 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.order-section-subtitle {
+    color: var(--gray);
+    margin: 0 0 20px 0;
+    font-size: 0.95rem;
+}
+
+/* Сетка техники */
+.order-equipment-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 16px;
+    margin-top: 15px;
+}
+
+.order-equipment-card {
+    border: 2px solid var(--gray-dark);
+    border-radius: 12px;
+    padding: 20px 15px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: var(--darker-bg);
+    position: relative;
+}
+
+.order-equipment-card:hover {
+    border-color: var(--primary);
+    transform: translateY(-2px);
+}
+
+.order-equipment-selected {
+    border-color: var(--primary);
+    background: rgba(255, 212, 71, 0.1);
+    transform: translateY(-2px);
+}
+
+.order-equipment-checkbox {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    z-index: 2;
+}
+
+.order-equipment-checkbox input {
+    width: 20px;
+    height: 20px;
+    accent-color: var(--primary);
+    cursor: pointer;
+}
+
+.order-equipment-image {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.order-equipment-image img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.order-equipment-name {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--foreground);
+    line-height: 1.4;
+}
+
+/* Поля формы */
+.order-form-fields {
+    display: flex;
+    gap: 20px;
+}
+
+.order-form-field {
+    flex: 1;
+}
+
+.order-form-label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--foreground);
+    font-size: 0.95rem;
+}
+
+.order-form-input {
+    width: 100%;
+    padding: 12px 16px;
+    border: 2px solid var(--gray-dark);
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background: var(--darker-bg);
+    color: var(--foreground);
+    font-family: 'Inter', sans-serif;
+}
+
+.order-form-input:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(255, 212, 71, 0.1);
+}
+
+.order-form-input::placeholder {
+    color: var(--gray);
+}
+
+/* Чекбокс */
+.order-checkbox-label {
+    display: flex;
+    align-items: flex-start;
+    cursor: pointer;
+    font-size: 0.95rem;
+    color: var(--foreground);
+    line-height: 1.5;
+}
+
+.order-checkbox-input {
+    display: none;
+}
+
+.order-checkbox-custom {
+    width: 22px;
+    height: 22px;
+    border: 2px solid var(--gray);
+    border-radius: 6px;
+    margin-right: 12px;
+    margin-top: 2px;
+    position: relative;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+    background: var(--darker-bg);
+}
+
+.order-checkbox-input:checked + .order-checkbox-custom {
+    background: var(--primary);
+    border-color: var(--primary);
+}
+
+.order-checkbox-input:checked + .order-checkbox-custom::after {
+    content: '✓';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--black);
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.order-agreement-text {
+    flex: 1;
+}
+
+.order-link {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.order-link:hover {
+    color: var(--primary-hover);
+    text-decoration: underline;
+}
+
+/* Выбранная техника */
+.order-selected-equipment {
+    background: var(--gray-light);
+    border-radius: 8px;
+    padding: 20px;
+}
+
+.order-selected-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.order-selected-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--dark-bg);
+    border: 1px solid var(--gray-dark);
+    border-radius: 6px;
+    padding: 10px 15px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.4s ease;
+}
+
+.order-selected-item:hover {
+    border-color: var(--primary);
+    background: rgba(255, 212, 71, 0.1);
+    transform: translateY(-4px);
+    box-shadow: 0 4px 12px rgba(255, 212, 71, 0.2);
+}
+
+.order-selected-name {
+    color: var(--foreground);
+}
+
+.order-equipment-link {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+}
+
+.order-equipment-link:hover {
+    color: var(--primary-hover);
+    transform: scale(1.1);
+}
+
+/* Кнопки */
+.order-modal-actions {
+    display: flex;
+    gap: 20px;
+    justify-content: flex-end;
+}
+
+.order-btn {
+    padding: 14px 28px;
+    border-radius: 8px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    font-family: 'Montserrat', sans-serif;
+    min-width: 140px;
+    text-align: center;
+}
+
+.order-btn-primary {
+    background: var(--primary);
+    color: var(--black);
+}
+
+.order-btn-primary:hover:not(:disabled) {
+    background: var(--primary-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 212, 71, 0.3);
+}
+
+.order-btn-primary:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.order-btn-secondary {
+    background: var(--gray-light);
+    color: var(--foreground);
+    border: 1px solid var(--gray-dark);
+}
+
+.order-btn-secondary:hover {
+    background: var(--gray-dark);
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .order-modal-overlay {
+        padding: 15px;
+    }
+    
+    .order-modal-content {
+        max-height: 95vh;
+        border-radius: 12px;
+    }
+    
+    .order-modal-header {
+        padding: 25px;
+    }
+    
+    .order-modal-title {
+        font-size: 1.5rem;
+    }
+    
+    .order-form-section {
+        padding: 25px;
+    }
+    
+    .order-equipment-grid {
+        grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+        gap: 12px;
+    }
+    
+    .order-form-fields {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .order-modal-actions {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .order-btn {
+        width: 100%;
+        min-width: auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .order-modal-header {
+        padding: 20px;
+    }
+    
+    .order-modal-title {
+        font-size: 1.3rem;
+    }
+    
+    .order-form-section {
+        padding: 20px;
+    }
+    
+    .order-equipment-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+    
+    .order-equipment-card {
+        padding: 15px 10px;
+    }
+    
+    .order-equipment-image {
+        width: 50px;
+        height: 50px;
+        margin-bottom: 8px;
+    }
+    
+    .order-selected-item {
+        flex: 1 1 100%;
+        justify-content: space-between;
+    }
+}
+
+/* Анимации */
+@keyframes orderModalAppear {
+    from {
+        opacity: 0;
+        transform: scale(0.9) translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+.order-modal-content {
+    animation: orderModalAppear 0.3s ease-out;
+}
+
+/* Кастомный скроллбар */
+.order-modal-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.order-modal-content::-webkit-scrollbar-track {
+    background: var(--darker-bg);
+}
+
+.order-modal-content::-webkit-scrollbar-thumb {
+    background: var(--primary);
+    border-radius: 4px;
+}
+
+.order-modal-content::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-hover);
+}

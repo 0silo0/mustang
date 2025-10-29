@@ -701,7 +701,7 @@
 }
 
 /* Обновленные стили для каталога */
-.equipment-card {
+/* .equipment-card {
   cursor: pointer;
   transition: all 0.3s ease;
 }
@@ -710,7 +710,7 @@
   transform: scale(1.05);
   box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
   z-index: 2;
-}
+} */
 
 /* Адаптивность для выпадающего меню */
 @media (max-width: 768px) {
