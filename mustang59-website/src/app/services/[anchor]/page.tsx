@@ -182,7 +182,7 @@ export default async function ServiceDetailPage({ params }: Props) {
                     src={image}
                     alt={`${service.name} - фото ${index + 1}`}
                     width={400}
-                    height={300}
+                    height={500}
                     className="gallery-image"
                   />
                 </div>

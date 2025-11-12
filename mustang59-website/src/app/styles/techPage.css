@@ -66,26 +66,27 @@
   margin-bottom: 50px;
 }
 
-.gallery-grid {
+.equipment-gallery-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 20px;
   margin-top: 20px;
 }
 
-.gallery-item {
+.equipment-gallery-item {
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
-  aspect-ratio: 4/3;
+  position: relative;
+  height: 250px; /* Фиксированная высота для десктопа */
 }
 
-.gallery-item:hover {
+.equipment-gallery-item:hover {
   transform: translateY(-5px);
 }
 
-.gallery-image {
+.equipment-gallery-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -424,13 +425,17 @@
     text-align: left;
   }
 
+  .equipment-gallery-item {
+    height: 200px; /* Меньшая высота на планшетах */
+  }
+/* 
   .gallery-grid {
     grid-template-columns: 1fr;
   }
 
   .gallery-item {
     aspect-ratio: 16/9;
-  }
+  } */
 
   .specs-grid {
     grid-template-columns: 1fr;
@@ -481,6 +486,15 @@
 
   .page-title {
     font-size: 1.8rem;
+  }
+
+  .equipment-gallery-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+  
+  .equipment-gallery-item {
+    height: 180px; /* Еще меньше на мобильных */
   }
 
   .equipment-full-description h2,
