@@ -22,10 +22,10 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Install dependencies
-        working-directory: ./frontend
+        working-directory: ./mustang59-website
         run: npm install --no-progress
       - name: Run lint
-        working-directory: ./frontend
+        working-directory: ./mustang59-website
         run: npm run lint
       # - name: Run unit tests
       #   working-directory: ./frontend
