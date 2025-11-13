@@ -193,7 +193,7 @@ export default async function ServiceDetailPage({ params }: Props) {
 
         {/* Полное описание */}
         <section className="service-full-description">
-          <h2>О услуге</h2>
+          <h2>Об услуге</h2>
           <div className="description-content">
             {renderDescription(service.fullDescription)}
           </div>

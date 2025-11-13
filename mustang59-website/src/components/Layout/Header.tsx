@@ -141,7 +141,7 @@ export default function Header() {
                   />
                 </Link>
                 <div className="company-name">
-                  <h1 className="company-title">Мустанг59</h1>
+                  <h1 className="company-title">ООО "Транспортная компания "МУСТАНГ59"</h1>
                   <p className="company-slogan">Профессиональный поставщик услуг транспортировки</p>
                 </div>
               </div>
