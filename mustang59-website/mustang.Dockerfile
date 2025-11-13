@@ -15,7 +15,9 @@ WORKDIR /usr/src/app
 COPY package*.json ./
 RUN npm install --only=production && npm cache clean --force
 
-COPY --from=build /usr/src/app/build ./build
+COPY --from=build /usr/src/app/.next ./.next/
+COPY --from=build /usr/src/app/public ./public/
+COPY --from=build /usr/src/app/package.json ./
 
 # EXPOSE 3000
 
