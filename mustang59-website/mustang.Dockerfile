@@ -17,10 +17,6 @@ RUN npm install --only=production && npm cache clean --force
 
 COPY --from=build /usr/src/app/build ./build
 
-# COPY public ./public
-COPY . .
-COPY .env ./
-
 # EXPOSE 3000
 
 CMD ["npm", "start"]
